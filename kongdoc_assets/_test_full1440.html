@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KongDoc - Diary App for Children with ASD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<style>
+@page{ size: 1440px 14000px; margin:0; }
+  @font-face{
+    font-family:'Pretendard';
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    font-weight:400; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'Pretendard';
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2') format('woff2');
+    font-weight:500; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'Pretendard';
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+    font-weight:700; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'Pretendard';
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight:800; font-style:normal; font-display:swap;
+  }
+
+  :root{
+    --font: 'Pretendard', -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --black:#000000;
+    --heading:#535353;
+    --body:#535353;
+    --muted:#7e7e7e;
+    --subtitle:#444444;
+    --page-bg:#f5f5f5;
+    --white:#ffffff;
+    --card-border:#afafaf;
+    --pill-bg:#ebebe7;
+    --pill-text:#494949;
+    --target-border:#8890f0;
+    --accent-blue:#334fff;
+    --bg-insights:#ececec;
+    --bg-uxwriting:#d8d8db;
+    --max:1720px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--font);
+    color:var(--body);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  img{max-width:100%;display:block;}
+  /* content column measured from source: 1720px content / 2880px canvas
+     = 59.72% content, 20.14% side margin each -> reproduced as % padding
+     so the same ratio holds at any viewport width, capped at the
+     original 2880px reference canvas for ultra-wide screens */
+  .wrap{max-width:2880px;margin:0 auto;padding:0 20.14%;}
+
+  /* ===== TYPE SCALE (measured 1:1 from source mockup) ===== */
+  .label{
+    font-size:30px;
+    line-height:1.3;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--muted);
+    font-weight:500;
+    margin:0 0 20px;
+  }
+  h1.h1{
+    font-size:80px;
+    line-height:1.15;
+    font-weight:800;
+    color:var(--black);
+    margin:0 0 28px;
+    letter-spacing:-0.01em;
+  }
+  h2.h2{
+    font-size:48px;
+    line-height:1.3;
+    font-weight:700;
+    color:var(--heading);
+    margin:0 0 32px;
+    max-width:1300px;
+  }
+  p.body-text{
+    font-size:30px;
+    line-height:1.6;
+    font-weight:400;
+    color:var(--body);
+    margin:0 0 48px;
+    max-width:1650px;
+  }
+  .subtitle{
+    font-size:40px;
+    line-height:1.4;
+    font-weight:400;
+    color:var(--subtitle);
+    margin:0 0 56px;
+    max-width:1400px;
+  }
+
+  section{padding:0;}
+  .bg-page{background:var(--page-bg);}
+
+  /* ===== HERO ===== */
+  .hero-visual{
+    background:linear-gradient(180deg,#f8fdfe 0%, #a7f5ff 100%);
+    padding:0;
+    text-align:center;
+  }
+  .hero-visual img{
+    /* measured: 1103px graphic / 2880px canvas = 38.3% of viewport width */
+    width:38.3%;
+    max-width:1103px;
+    min-width:320px;
+    margin:0 auto;
+    padding:64px 0 40px;
+  }
+  .hero-info{padding:72px 0 56px;}
+  .hero-info .kicker{margin-bottom:24px;}
+  .meta-row{display:flex;gap:120px;flex-wrap:wrap;padding:56px 0 60px;}
+  .meta-col .label{margin-bottom:16px;}
+  .meta-col p{margin:0;font-size:30px;line-height:1.55;color:var(--body);}
+  .divider{border:none;border-top:1px solid #d8d8d8;margin:0;}
+
+  /* ===== OVERVIEW ===== */
+  .pill-row{display:flex;gap:38px;margin-top:44px;}
+  .pill{
+    background:var(--pill-bg);
+    border-radius:20px;
+    padding:36px 30px;
+    flex:1 1 0;
+    min-width:0;
+    text-align:center;
+    font-size:30px;
+    font-weight:700;
+    color:var(--pill-text);
+    line-height:1.4;
+  }
+
+  /* ===== BACKGROUND ===== */
+  .photo-strip{border-radius:14px;overflow:hidden;margin:56px 0 56px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .stat-card{
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:36px 40px 44px;
+  }
+  .stat-card h4{font-size:30px;font-weight:700;color:var(--heading);margin:0 0 26px;line-height:1.4;}
+  .stat-card p{font-size:30px;line-height:1.55;color:var(--body);margin:0;}
+
+  .section-pad{padding:96px 0;}
+
+  /* ===== PROBLEM / TARGET USER GROUP ===== */
+  .diagram-box{margin:56px 0 56px;border-radius:14px;overflow:hidden;}
+  .target-box{
+    border:2px solid var(--target-border);
+    border-radius:24px;
+    padding:56px 64px;
+  }
+  .target-box .label{color:var(--accent-blue);}
+  .target-box h3{font-size:48px;font-weight:700;color:var(--heading);margin:0 0 40px;line-height:1.3;max-width:1300px;}
+  .target-flex{display:flex;gap:64px;align-items:flex-start;}
+  .target-flex img{flex:1 1 62%;max-width:62%;}
+  .target-flex .side-text{flex:1 1 34%;font-size:30px;line-height:1.55;color:var(--body);padding-top:4px;}
+
+  /* ===== RESEARCH ===== */
+  .methodology{font-size:30px;line-height:1.85;color:var(--body);margin:0 0 56px;white-space:pre-line;}
+  .research-grid{display:flex;gap:28px;align-items:stretch;}
+  .research-grid > .rcard.tall{flex:1 1 0;}
+  .research-col{flex:1 1 0;display:flex;flex-direction:column;gap:28px;}
+  .rcard{background:#e3e7f2;border-radius:20px;padding:44px;}
+  .rcard.tall{background:#e0e4ee;}
+  .rcard .badge{
+    display:inline-block;background:var(--white);border-radius:12px;
+    padding:14px 22px;font-weight:700;font-size:30px;color:var(--heading);margin-bottom:24px;
+  }
+  .rcard p{font-size:26px;line-height:1.6;color:var(--body);margin:0 0 16px;}
+  .rcard .meta-line b{color:var(--heading);}
+  .rcard .quote{color:var(--accent-blue);font-weight:700;margin-top:20px;}
+  .rcard img{border-radius:10px;margin:20px 0 8px;}
+  .doc-therapist-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px;}
+  .doc-therapist-grid h5{font-size:26px;font-weight:700;color:var(--heading);margin:0 0 10px;}
+  .doc-therapist-grid p{margin:0 0 4px;font-size:22px;color:var(--muted);}
+
+  /* ===== KEY INSIGHTS ===== */
+  .bg-insights{background:var(--bg-insights);}
+  .insight-grid{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px;}
+  .insight-grid > .insight-card{flex:1 1 320px;}
+  .insight-grid .row2{flex-basis:100%;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+  .insight-grid .row2 .insight-card{flex:1 1 400px;max-width:440px;}
+  .insight-card{background:var(--white);border-radius:18px;padding:36px;}
+  .insight-card h4{font-size:30px;font-weight:700;color:var(--heading);margin:0 0 22px;line-height:1.4;}
+  .insight-card .q{background:#efeff5;border-radius:12px;padding:24px 26px;font-size:24px;line-height:1.55;color:var(--muted);}
+
+  /* ===== FEATURE DEFINITIONS ===== */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;}
+  .feature-card{
+    background:var(--white);border:1px solid var(--card-border);border-radius:18px;
+    padding:52px 40px;text-align:center;
+  }
+  .feature-card .emoji{font-size:44px;margin-bottom:22px;}
+  .feature-card h4{font-size:28px;font-weight:700;color:var(--heading);margin:0 0 20px;line-height:1.4;}
+  .feature-card p{font-size:24px;line-height:1.6;color:var(--muted);margin:0;}
+
+  /* ===== UX WRITING ===== */
+  .bg-uxwriting{background:var(--bg-uxwriting);}
+  .ux-block{background:var(--white);border-radius:20px;padding:48px 56px;margin-bottom:28px;max-width:1440px;}
+  .ux-block h4{font-size:30px;font-weight:700;color:var(--heading);margin:0 0 18px;line-height:1.4;}
+  .ux-block p{font-size:26px;line-height:1.6;color:var(--body);margin:0 0 28px;max-width:1200px;}
+  .bubble{display:inline-block;border-radius:30px;padding:18px 30px;font-size:26px;margin:0 14px 14px 0;}
+  .bubble.purple{background:#ecdff5;color:var(--heading);}
+  .bubble.blue{background:#e2e5fa;border:1px solid #c7cbf5;color:var(--heading);}
+
+  /* ===== SOLUTION ===== */
+  .sol-label{color:var(--accent-blue);font-size:30px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin:0 0 14px;}
+  .sol-heading{font-size:48px;font-weight:700;color:var(--heading);margin:0 0 44px;}
+  .sol-row{background:var(--page-bg);border-radius:24px;padding:64px;display:flex;align-items:center;gap:80px;margin-bottom:32px;}
+  .sol-row.reverse{flex-direction:row-reverse;}
+  .sol-row .phone{flex:0 0 auto;}
+  .sol-row .phone img{width:340px;border-radius:30px;}
+  .sol-row .text-block{flex:1 1 auto;}
+  .sol-row .text-block h4{font-size:30px;font-weight:700;color:var(--heading);margin:0 0 18px;}
+  .sol-row .text-block p{font-size:26px;line-height:1.65;color:var(--body);margin:0;max-width:560px;}
+  .legend{display:flex;gap:36px;margin-top:26px;align-items:center;flex-wrap:wrap;}
+  .legend .sw{display:inline-flex;align-items:center;gap:10px;font-size:24px;color:var(--heading);}
+  .legend .dot{width:20px;height:20px;border-radius:5px;display:inline-block;}
+  .dot.my{background:#c6c9f7;}
+  .dot.others{background:#e6e8fb;border:1px solid #b7bbf0;}
+  .dot.today{background:var(--accent-blue);}
+
+  .testing-box{border:2px solid var(--card-border);border-radius:24px;padding:56px 64px;margin-bottom:32px;}
+  .testing-box h4{font-size:30px;font-weight:700;color:var(--heading);margin:0 0 18px;}
+  .testing-box > p{font-size:26px;line-height:1.6;color:var(--body);margin:0 0 32px;max-width:900px;}
+  .testing-flex{display:flex;gap:44px;align-items:flex-start;flex-wrap:wrap;}
+  .testing-flex img{flex:0 0 420px;max-width:420px;border-radius:12px;border:1px solid var(--card-border);}
+  .testing-flex .scenarios{flex:1 1 300px;font-size:24px;line-height:1.6;color:var(--body);}
+  .testing-flex .scenarios h5{font-size:26px;font-weight:700;color:var(--heading);margin:0 0 12px;}
+  .testing-flex .insight-note{flex:1 1 300px;background:#e6e9fb;border-radius:14px;padding:28px;font-size:24px;line-height:1.6;color:#31356e;align-self:stretch;}
+
+  .sol2-box{background:var(--page-bg);border-radius:24px;padding:64px;}
+  .sol2-cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;text-align:center;margin-bottom:48px;}
+  .sol2-cols h5{font-size:28px;font-weight:700;color:var(--heading);margin:0 0 18px;}
+  .sol2-cols p{font-size:24px;line-height:1.65;color:var(--body);margin:0;}
+  .sol2-phones{display:grid;grid-template-columns:1fr 1fr;gap:52px;justify-items:center;}
+  .sol2-phones img{width:360px;border-radius:30px;}
+
+  @media (max-width:900px){
+    .wrap{padding:0 28px;}
+    .hero-visual img{width:85%;min-width:0;}
+    h1.h1{font-size:44px;}
+    h2.h2{font-size:32px;}
+    p.body-text,.label,.stat-card h4,.stat-card p,.meta-col p,.pill{font-size:18px;}
+    .subtitle{font-size:22px;}
+    .meta-row{gap:36px;}
+    .stat-grid{grid-template-columns:1fr;}
+    .pill-row{gap:16px;}
+    .pill{flex:1 1 45%;padding:20px 16px;}
+    .target-flex,.research-grid,.sol-row,.sol-row.reverse{flex-direction:column;}
+    .target-flex img{max-width:100%;}
+    .doc-therapist-grid,.sol2-cols,.sol2-phones,.feature-grid{grid-template-columns:1fr;}
+    .insight-grid .row2{grid-template-columns:1fr;}
+    .target-box,.rcard,.sol-row,.testing-box,.sol2-box{padding:28px;}
+    .target-box h3,.sol-heading{font-size:28px;}
+    .rcard p,.testing-flex .scenarios,.ux-block p,.insight-card .q,.feature-card p,.sol-row .text-block p{font-size:16px;}
+    .sol-row .phone img,.sol2-phones img{width:220px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP IMAGE / HERO -->
+  <div class="hero-visual">
+    <img src="kongdoc_assets/hero.png" alt="KongDoc app hero mockup">
+  </div>
+
+  <section class="bg-page hero-info">
+    <div class="wrap">
+      <div class="label kicker">HEALTHCARE &nbsp;&middot;&nbsp; 2019 - 2021</div>
+      <h1 class="h1">KongDoc - Diary App for Children with ASD</h1>
+      <p class="subtitle">How can children with ASD recieve accurate and continuous care over time?</p>
+      <div class="meta-row">
+        <div class="meta-col">
+          <div class="label">MY ROLE</div>
+          <p>UX Designer<br>&amp; Project Manager</p>
+        </div>
+        <div class="meta-col">
+          <div class="label">THE TEAM</div>
+          <p>2 Medical Doctors,<br>2 Software Engineers</p>
+        </div>
+        <div class="meta-col">
+          <div class="label">AWARDS</div>
+          <p>2019 - Dreamshare Medical Hackathon<br>
+             2020 - Yonsei Start-up Incubation Program<br>
+             2020 - Digital Health Hackathon (1st Place)<br>
+             2021 - Kakao Impact Incubation Program</p>
+        </div>
+      </div>
+      <hr class="divider">
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="bg-page section-pad" style="padding-top:96px;padding-bottom:0;">
+    <div class="wrap">
+      <div class="label">OVERVIEW</div>
+      <h2 class="h2">I worked on interacton design of Ballie, building trust and emotional connections with users.</h2>
+      <p class="body-text">At the Healthcare Entrepreneurship Society &ldquo;Medilux,&rdquo; multi-background members interested in children with developmental disabilities gathered. Through item development, our team won the grand prize at the Digital Healthcare Hackathon and received project development investment.</p>
+      <div class="pill-row">
+        <div class="pill">Recognizable<br>Greetings</div>
+        <div class="pill">Automatic<br>Charging</div>
+        <div class="pill">Adaptable<br>Screen Projections</div>
+        <div class="pill">Multi-Modal<br>Experiences</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="bg-page section-pad">
+    <div class="wrap">
+      <div class="label">BACKGROUND</div>
+      <h2 class="h2">My interest began through working with children with ASD.</h2>
+      <p class="body-text">Through volunteering with diverse groups of children, I developed a deep interest in early childhood development. By working with both typically developing children and children with autism spectrum disorder (ASD), I became increasingly aware of the challenges their parents face, particularly in accessing timely and effective support.</p>
+      <div class="photo-strip"><img src="kongdoc_assets/background_photos.png" alt="Volunteering with children"></div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <h4>High Treatment Costs<br>&amp; Long Wait Times</h4>
+          <p>The cost of effective autism treatment is extremely high. Applied Behavior Analysis (ABA), one of the most widely recognized treatment methods, can cost up to &#8361;4 million per month for full-time sessions. (Autism Partnership Korea)</p>
+        </div>
+        <div class="stat-card">
+          <h4>Rising Prevalence<br>of ASD</h4>
+          <p>According to the CDC, the prevalence of autism spectrum disorder in the United States has risen sharply, from 1 in 166 children (0.67%) in 2004 to 1 in 68 (1.46%) in 2016, and further to 1 in 59 (1.69%) in 2018.</p>
+        </div>
+        <div class="stat-card">
+          <h4>Importance<br>of Early Intervention</h4>
+          <p>According to the CDC, the prevalence of autism spectrum disorder in the United States has risen sharply, from 1 in 166 children (0.67%) in 2004 to 1 in 68 (1.46%) in 2016, and further to 1 in 59 (1.69%) in 2018.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="bg-page section-pad">
+    <div class="wrap">
+      <div class="label">PROBLEM</div>
+      <h2 class="h2">Fragmented behavior records disrupt clinical interpretation and continuity of care.</h2>
+      <div class="diagram-box"><img src="kongdoc_assets/problem_diagram.png" alt="Problem diagram"></div>
+      <p class="body-text">Among the various issues related to developmental disabilities, we focused on behavioral records of children with developmental disabilities. For children with developmental disabilities, everyday behavioral observations often play an important role in clinical assessment and ongoing care. Caregivers often document behaviors through scattered photos, videos, and notes, making it difficult to identify patterns and communicate them efficiently during clinical visits.</p>
+
+      <div class="target-box">
+        <div class="label">TARGET USER GROUP</div>
+        <h3>Caregivers during the initiation and management phase of developmental therapy</h3>
+        <div class="target-flex">
+          <img src="kongdoc_assets/target_group.png" alt="Target user group stages">
+          <div class="side-text">Caregivers&rsquo; needs and decision-making priorities shift depending on their psychological state, parenting stage, and position within the treatment journey.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="bg-page section-pad">
+    <div class="wrap">
+      <div class="label">RESEARCH</div>
+      <h2 class="h2">Interviews revealed that parents were too busy, records were fragmented, and they didn&rsquo;t know what kind of data should be shared.</h2>
+      <p class="methodology">Desk Research : Surveys, Developmental Disability Blogs
+Field Research : Qualitative research (interview - user/expert interview)
+Data Modeling : Affinity Mapping, Personas
+Service Concept : Brainstorming
+Service Define : user scenario, storyboard, IA</p>
+
+      <div class="research-grid">
+        <div class="rcard tall">
+          <div class="badge">Stakeholder Definition</div>
+          <p>Rather than treating caregivers as isolated users, we mapped the full ecosystem surrounding a child&rsquo;s care to understand where behavioral data breaks down across institutions, roles, and responsibilities</p>
+          <img src="kongdoc_assets/stakeholder_diagram.png" alt="Stakeholder ecosystem diagram">
+        </div>
+        <div class="research-col">
+        <div class="rcard">
+          <div class="badge">In-Depth Interviews</div>
+          <p>To understand the needs of caregivers more deeply, we conducted 1:1 interviews with parents of children with ASD.</p>
+          <p class="meta-line"><b>Participants:</b> 6 parents of children with developmental disabilities<br>Age of children: 3&ndash;5 (infancy) and 6&ndash;12 (childhood)</p>
+          <p class="meta-line"><b>Method:</b> One-on-one in-depth interviews, 35 minutes per session</p>
+          <img src="kongdoc_assets/interview_photos.png" alt="Interview process photos">
+          <p class="quote">These interviews helped us see caregiving as an ongoing negotiation between emotional labor and time pressure.</p>
+        </div>
+        <div class="rcard">
+          <div class="badge">Professional Research</div>
+          <p>To understand the needs of caregivers more deeply, we conducted 1:1 interviews with parents of children with ASD.</p>
+          <div class="doc-therapist-grid">
+            <div>
+              <h5>&#129490; Doctor Interviews</h5>
+              <p>Participants: 2 child psychiatrists/<br>One-on-one interviews</p>
+            </div>
+            <div>
+              <h5>&#129497; Therapist Interviews</h5>
+              <p>Participants: 4 developmental therapists (2 speech-language therapists, 2 occupational therapists)</p>
+            </div>
+          </div>
+          <p class="quote">Speaking with clinicians and therapists clarified a critical gap: while professionals value longitudinal behavioral patterns, the data they receive is often episodic, inconsistent, and shaped by caregiver stress rather than clinical relevance.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INSIGHTS -->
+  <section class="bg-insights section-pad">
+    <div class="wrap">
+      <div class="label">KEY INSIGHTS</div>
+      <h2 class="h2">Caregivers need an easier way to capture, share, and communicate a child&rsquo;s behavioral progress.</h2>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <h4>Guardians&rsquo; parenting styles and emotional states affect their records</h4>
+          <div class="q">&ldquo;When a behavioral issue happens, I&rsquo;m too busy handling the situation, removing dangerous objects or calming them down&hellip;&rdquo;<br>&mdash; Caregiver C</div>
+        </div>
+        <div class="insight-card">
+          <h4>Multiple caregivers often share roles, leading to data fragmentation.</h4>
+          <div class="q">&ldquo;My child is sometimes cared for by their grandmother or a teacher, and in those cases, it&rsquo;s hard to manage all the records consistently.&rdquo;<br>&mdash; Caregiver A</div>
+        </div>
+        <div class="insight-card">
+          <h4>Uncertainty about what to report during short doctor visits</h4>
+          <div class="q">&ldquo;The consultation is so short, and I never know what I should show the doctor. I just freeze up.&rdquo;<br>&mdash; Caregiver B</div>
+        </div>
+        <div class="row2">
+          <div class="insight-card">
+            <h4>Data for both the doctor and the parents is needed. Track data for long-term treatment</h4>
+            <div class="q">Experts emphasized the importance of offering the service in a digital format that enables doctors and therapists to easily review behavior logs and track progress.</div>
+          </div>
+          <div class="insight-card">
+            <h4>Emotional Sensitivity of Caregivers</h4>
+            <div class="q">Caregivers often experience significant emotional stress. The product should be designed to support their emotional well-being as well as provide practical tools.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE DEFINITIONS -->
+  <section class="bg-white section-pad" style="background:#fff;">
+    <div class="wrap">
+      <div class="label">FEATURE DEFINITIONS</div>
+      <h2 class="h2">Turning fragmented observations into shared, actionable records.</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="emoji">&#128214;</div>
+          <h4>Guided logging<br>for busy routines</h4>
+          <p>Reduce documentation burden through quick, structured prompts that caregivers can complete during busy routines.</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">&#127968;</div>
+          <h4>Shared behavior logs and<br>schedule management</h4>
+          <p>Enable multiple caregivers to collaboratively manage a shared schedule and behavioral records. This ensures all stakeholders are &ldquo;on the same page&rdquo; regarding the child&rsquo;s developmental status.</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">&#128200;</div>
+          <h4>Visualized reports<br>for clinical communication</h4>
+          <p>Provide summarized, visual reports highlighting only the most relevant data for clinical use. This helps caregivers quickly and clearly communicate during short medical appointments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX WRITING -->
+  <section class="bg-uxwriting section-pad">
+    <div class="wrap">
+      <div class="label">UX WRITING</div>
+      <h2 class="h2">I defined writing principles to provide emotional warmth and reduce the burden of documentation.</h2>
+      <div class="ux-block">
+        <h4>Warm encouragement<br>for emotionally burdened users</h4>
+        <p>Parents of children with developmental disabilities experience the highest levels of stress among caregivers of children with illnesses or disabilities. I recognized that warm, encouraging communication is a crucial element in supporting consistent and sustainable record-keeping.</p>
+        <div>
+          <span class="bubble purple">&ldquo;You&rsquo;re already a wonderful mom, just by being present.&rdquo;</span><br>
+          <span class="bubble purple">&ldquo;Well done! You&rsquo;ve finished all your logs for the week.&rdquo;</span>
+        </div>
+      </div>
+      <div class="ux-block">
+        <h4>Ask questions like a kind, smart doctor</h4>
+        <p>We designed our prompts to be simple and intentional&mdash;like a friendly doctor asking just the right questions&mdash;so that caregivers could feel guided, not overwhelmed.</p>
+        <div>
+          <span class="bubble blue">"How did those responses from others make you feel?"</span><br>
+          <span class="bubble blue">"Do these symptoms or behaviors occur repeatedly?"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION 1 -->
+  <section class="bg-white section-pad" style="background:#fff;">
+    <div class="wrap">
+      <div class="sol-label">SOLUTION 1</div>
+      <h2 class="sol-heading">Quick Logs During Daytime, Detailed Updates Afterwards</h2>
+
+      <div class="sol-row">
+        <div class="phone"><img src="kongdoc_assets/signup_phone.png" alt="Sign-up symptom input screen"></div>
+        <div class="text-block">
+          <h4>Symptom input during sign-up</h4>
+          <p>Children with developmental disabilities often display a recurring set of symptoms. During sign-up, users can search for and select relevant symptoms that their child frequently exhibits. By categorizing these symptoms in advance, the system can later provide tailored content and personalized insights based on the selected symptom types.</p>
+        </div>
+      </div>
+
+      <div class="sol-row reverse">
+        <div class="phone"><img src="kongdoc_assets/quicklog_phone.png" alt="Quick log screen"></div>
+        <div class="text-block">
+          <h4>Quick logging during daytime</h4>
+          <p>When a symptom occurs, caregivers are often focused on managing the situation and unable to document it in detail. The Quick Log feature allows users to select a symptom with a single tap, automatically saving the selected symptom along with a timestamp&mdash;minimizing the burden of real-time data entry.</p>
+        </div>
+      </div>
+
+      <div class="sol-row">
+        <div class="phone"><img src="kongdoc_assets/dashboard_phone.png" alt="Home dashboard screen"></div>
+        <div class="text-block">
+          <h4>Detailed context logging</h4>
+          <p>Records created via the Quick Log can be expanded later to include contextual information such as triggers, consequences, and calming strategies. This helps analyze behavioral patterns in more depth and creates a valuable record for treatment and professional consultation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION 2 (schedule) -->
+  <section class="bg-white section-pad" style="background:#fff;">
+    <div class="wrap">
+      <div class="sol-label">SOLUTION 2</div>
+      <h2 class="sol-heading">Shared Behavior Logging Across All Caregivers</h2>
+
+      <div class="sol-row">
+        <div class="phone"><img src="kongdoc_assets/calendar_phone.png" alt="Shared schedule calendar screen"></div>
+        <div class="text-block">
+          <h4>Logging Based on Shared Schedule</h4>
+          <p>In most cases, parenting is not handled solely by the parents. Grandparents and childcare providers are often involved in the child&rsquo;s daily care. This leads to gaps in behavioral records and fragmented information. By linking behavior logging to a shared schedule, caregivers who spend time with the child are prompted to record observations in a timely and structured way.</p>
+          <div class="legend">
+            <span class="sw"><span class="dot my"></span> My schedule</span>
+            <span class="sw"><span class="dot others"></span> Others</span>
+            <span class="sw"><span class="dot today"></span> Today</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testing-box">
+        <h4>User Testing with Target Users</h4>
+        <p>A core-feature MVP was developed as an Android app and tested with target users through user testing (UT) sessions.</p>
+        <div class="testing-flex">
+          <img src="kongdoc_assets/testing_thumbs.png" alt="User testing scenario screens">
+          <div class="scenarios">
+            <h5>Test Scenarios</h5>
+            1) Log a problem behavior using the quick record feature<br>
+            2) Add detailed notes and photos later as a developmental diary<br>
+            3) Browse and review previously logged records
+          </div>
+          <div class="insight-note">Step 2 (detailed input) was found to be quick and convenient. However, users found it difficult to locate and interpret past records intuitively.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION 2 (reports) -->
+  <section class="bg-white section-pad" style="background:#fff;padding-top:0;">
+    <div class="wrap">
+      <div class="sol-label">SOLUTION 2</div>
+      <h2 class="sol-heading">Shared Behavior Logging Across All Caregivers</h2>
+      <div class="sol2-box">
+        <div class="sol2-cols">
+          <div>
+            <h5>Building Objective Data</h5>
+            <p>By allowing users to input the frequency of symptoms over defined time periods, the system accumulates objective data on behavioral patterns. This enables visual tracking of symptom progression for caregivers, while also laying the foundation for personalized service expansion.</p>
+          </div>
+          <div>
+            <h5>Focused View for Clinical Use</h5>
+            <p>The reporting feature prioritizes delivering only clinically relevant information in a short time frame. Informed by physician interviews, it allows filtering by symptom and time to surface trends in frequency and severity.</p>
+          </div>
+        </div>
+        <div class="sol2-phones">
+          <div><img src="kongdoc_assets/report_phone1.png" alt="Response reports - behavioral patterns chart"></div>
+          <div><img src="kongdoc_assets/report_phone2.png" alt="Response reports - all records list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
