@@ -148,19 +148,21 @@
   .scen-head .photo{flex:0 0 auto;width:46%;border-radius:12px;overflow:hidden;}
   .big-card{background:var(--card-scenario);border-radius:16px;padding:36px 40px 44px;margin-bottom:20px;}
   .big-card h3{font-size:20px;font-weight:600;color:var(--white);margin:0 0 30px;}
-  .num-row{display:flex;gap:20px;margin-bottom:40px;}
+  .num-row{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:20px;row-gap:20px;margin-bottom:40px;}
+  .num-row > .num-badge{grid-column:1;grid-row:1;}
+  .num-row > .num-text,.num-row > .num-media{grid-column:2;}
   .num-row:last-child{margin-bottom:0;}
   .num-badge{
     flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#4a4a4a;color:var(--white);
     display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;margin-top:2px;
   }
-  .num-row .num-text{flex:1 1 340px;max-width:400px;}
+  .num-row .num-text{max-width:none;}
   .num-row h4{font-size:18px;font-weight:600;color:var(--white);margin:0 0 12px;line-height:1.35;}
   .num-row p{font-size:15px;line-height:1.6;color:var(--body);margin:0;}
-  .num-row .num-media{flex:1 1 380px;}
+  .num-row .num-media{min-width:0;}
   .num-media img{border-radius:8px;width:100%;}
   .num-media.two-up{display:flex;gap:12px;}
-  .num-media.two-up img{border-radius:8px;}
+  .num-media.two-up img{border-radius:8px;flex:1 1 0;min-width:0;width:0;}
   .side-note{font-size:15px;line-height:1.7;color:var(--white);margin:0 0 14px;}
   .pill-badge{
     display:inline-block;background:#0f3c3e;color:var(--accent);border-radius:20px;
@@ -194,7 +196,7 @@
   .sc-two img{border-radius:10px;width:100%;}
   .sc-two p{font-size:15px;line-height:1.55;color:var(--white);margin:10px 0 0;}
 
-  .final-row{display:flex;align-items:center;gap:6px;margin-top:36px;}
+  .final-row{display:flex;align-items:center;gap:10px;margin-top:36px;}
   .final-row img{flex:1 1 0;border-radius:10px;min-width:0;}
   .final-row .arrow{flex:0 0 auto;font-size:20px;color:var(--body);padding:0 4px;}
 
@@ -215,6 +217,7 @@
     .ux-row h4{flex:none;}
     .sc-row,.sc-two,.final-row{flex-direction:column;}
     .final-row .arrow{transform:rotate(90deg);}
+    .final-row img{flex:none !important;width:100%;}
   }
 </style>
 </head>
@@ -339,7 +342,7 @@
             <p>Vision AI generates personalized recipes based on previously learned user data, such as dietary preferences, activity patterns, and past interactions.</p>
           </div>
           <div class="num-media" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;max-width:100%;">
-            <img src="visionai_assets/recipe_row2_screenshot.png" alt="TV screenshot recommending a protein-rich Branzino recipe" style="flex:1 1 260px;min-width:0;max-width:260px;">
+            <img src="visionai_assets/recipe_row2_screenshot.png" alt="TV screenshot recommending a protein-rich Branzino recipe" style="flex:1 1 380px;min-width:0;max-width:62%;">
             <div style="flex:1 1 160px;min-width:0;">
               <p class="side-note">Looks like you&rsquo;ve been working out lately.</p>
               <span class="pill-badge">Samsung Health Data</span>
@@ -350,7 +353,7 @@
         </div>
         <div class="num-row reveal">
           <div class="num-badge">3</div>
-          <div class="num-text" style="max-width:500px;">
+          <div class="num-text">
             <h4>Sending the Recipe to the Kitchen Screen &amp; Making AI Reasoning Visible</h4>
             <p>The recipe can be sent to a nearby kitchen screen, remaining accessible and ready throughout the cooking process.</p>
             <p style="margin-top:16px;">Through research, I recognized the importance of making AI reasoning visible to users. This led me to explore ways of externalizing the system&rsquo;s reasoning process, allowing users to follow each step of the AI&rsquo;s thinking rather than receiving opaque outcomes.</p>
@@ -458,10 +461,10 @@
       </div>
 
       <div class="final-row">
-        <img src="visionai_assets/final_tv_off.png" alt="TV turned off in a living room">
+        <img src="visionai_assets/final_tv_off_v2.png" alt="TV turned off in a living room" style="flex:1.247 1 0;">
         <div class="arrow">&#8594;</div>
-        <img src="visionai_assets/final_planets.png" alt="TV displaying colorful planets artwork">
-        <img src="visionai_assets/final_people.png" alt="People relaxing in a living room with TV art visible">
+        <img src="visionai_assets/final_planets_v2.png" alt="TV displaying colorful planets artwork" style="flex:1.553 1 0;">
+        <img src="visionai_assets/final_people.png" alt="People relaxing in a living room with TV art visible" style="flex:1.078 1 0;">
       </div>
     </div>
   </section>
