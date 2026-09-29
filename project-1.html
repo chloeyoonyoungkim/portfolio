@@ -148,9 +148,14 @@
   .scen-head .photo{flex:0 0 auto;width:46%;border-radius:12px;overflow:hidden;}
   .big-card{background:var(--card-scenario);border-radius:16px;padding:36px 40px 44px;margin-bottom:20px;}
   .big-card h3{font-size:20px;font-weight:600;color:var(--white);margin:0 0 30px;}
-  .num-row{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:20px;row-gap:20px;margin-bottom:40px;}
+  .num-row{display:grid;grid-template-columns:30px minmax(0,1fr) minmax(0,1.15fr);column-gap:24px;row-gap:20px;margin-bottom:40px;align-items:start;}
   .num-row > .num-badge{grid-column:1;grid-row:1;}
-  .num-row > .num-text,.num-row > .num-media{grid-column:2;}
+  .num-row > .num-text{grid-column:2;grid-row:1;}
+  .num-row > .num-media{grid-column:3;grid-row:1;}
+  /* stacked variant (recipe): text on top, media full width below */
+  .big-card.stacked .num-row{grid-template-columns:30px minmax(0,1fr);column-gap:20px;}
+  .big-card.stacked .num-row > .num-text{grid-column:2;grid-row:1;}
+  .big-card.stacked .num-row > .num-media{grid-column:2;grid-row:2;}
   .num-row:last-child{margin-bottom:0;}
   .num-badge{
     flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#4a4a4a;color:var(--white);
@@ -210,7 +215,9 @@
     .stat-grid{grid-template-columns:1fr;}
     .scen-head{flex-direction:column;}
     .scen-head .photo{width:100%;}
-    .num-row{flex-direction:column;gap:16px;margin-bottom:32px;}
+    .num-row,.big-card.stacked .num-row{grid-template-columns:30px minmax(0,1fr);column-gap:14px;row-gap:16px;margin-bottom:32px;}
+    .num-row > .num-text,.big-card.stacked .num-row > .num-text{grid-column:2;grid-row:1;}
+    .num-row > .num-media,.big-card.stacked .num-row > .num-media{grid-column:2;grid-row:2;}
     .num-row .num-text{flex:none;max-width:none;width:100%;}
     .num-row .num-media{flex:none;width:100%;}
     .ux-row{flex-direction:column;gap:8px;}
@@ -218,6 +225,7 @@
     .sc-row,.sc-two,.final-row{flex-direction:column;}
     .final-row .arrow{transform:rotate(90deg);}
     .final-row img{flex:none !important;width:100%;}
+    .num-media img{max-width:100% !important;flex-basis:100% !important;}
   }
 </style>
 </head>
@@ -322,7 +330,7 @@
         </div>
       </div>
 
-      <div class="big-card reveal">
+      <div class="big-card stacked reveal">
         <h3>CES Recipe Scenario</h3>
         <div class="num-row reveal">
           <div class="num-badge">1</div>
