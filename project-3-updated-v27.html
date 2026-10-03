@@ -278,6 +278,11 @@
     .sysover-img{height:320px;}
     .final-left{padding:3rem 1.5rem;}
   }
+
+  /* SCROLL REVEAL (same motion as the other project pages) */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.is-in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
 </head>
 <body>
@@ -523,5 +528,48 @@
   <a href="index.html#work" style="color:inherit;text-decoration:none;">&larr; Back to Work</a>
 </footer>
 
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script>
+  // Smooth momentum scrolling (same as the other project pages)
+  if (window.Lenis) {
+    const lenis = new Lenis({ duration: 1.1, easing: (t) => 1 - Math.pow(1 - t, 3) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+  // Reveal blocks as they enter the viewport; siblings in a row rise one after another
+  (function(){
+    const groups = [
+      ['.hero', '.hero-image, .hero-tag, h1, .hero-meta .meta-col'],
+      ['.bg-hero-content', ':scope > *, .shift-col'],
+      ['.bg-research', '.s-label, .stat-card'],
+      ['.dq-grid', '.s-label, h2, p, .dq-row'],
+      ['section', ':scope > .s-label, :scope > h2, .exp-group'],
+      ['.sysover-header', ':scope > *'],
+      ['.sysover-grid', '.sysover-col'],
+      ['.feat4-cell', '.feat4-text, .feat4-image, .feat4-image-row'],
+      ['.final-left', ':scope > *'],
+      ['.final-right', ':scope > *']
+    ];
+    const els = [];
+    groups.forEach(([pSel, cSel]) => {
+      document.querySelectorAll(pSel).forEach(parent => {
+        let i = 0;
+        parent.querySelectorAll(cSel).forEach(el => {
+          if (el.classList.contains('reveal') || el.closest('.shift-row') && !el.classList.contains('shift-col') && el !== el.closest('.shift-row')) return;
+          if (el.classList.contains('shift-row')) return;
+          el.classList.add('reveal');
+          el.style.transitionDelay = Math.min(i * 0.1, 0.5) + 's';
+          i++; els.push(el);
+        });
+      });
+    });
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-in')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 </body>
 </html>
