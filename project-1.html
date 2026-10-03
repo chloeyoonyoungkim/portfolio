@@ -130,8 +130,7 @@
   /* ===== BACKGROUND SECTION ===== */
   .bg-background{background:var(--bg-black);position:relative;overflow:hidden;}
   .bg-background .photo-overlay{
-    position:absolute;top:0;right:0;width:46%;aspect-ratio:665/359;
-    background-size:cover;background-position:center top;
+    position:absolute;top:0;right:0;width:46%;height:auto;display:block;
     -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 8%);
     mask-image:linear-gradient(to right, transparent 0%, #000 8%);
   }
@@ -177,6 +176,8 @@
   /* ===== FEATURE SECTIONS (shared bg) ===== */
   .bg-feature{background:var(--bg-feature);}
   .feature-visual{border-radius:14px;overflow:hidden;margin-bottom:32px;}
+  .feature-pair{display:flex;border-radius:0;}
+  .feature-pair img{min-width:0;width:0;height:auto;}
   .ux-row{display:flex;gap:40px;padding:22px 0;margin-bottom:4px;}
   .ux-row h4{flex:0 0 300px;font-size:17px;font-weight:600;color:var(--white);margin:0;line-height:1.4;}
   .ux-row p{flex:1 1 auto;font-size:15px;line-height:1.65;color:var(--body);margin:0;max-width:640px;}
@@ -213,6 +214,7 @@
     p.body-text,.stat-card p,.ux-row p,.reflection p,.num-row p{font-size:14px;}
     .meta-row{gap:24px;}
     .stat-grid{grid-template-columns:1fr;}
+    .bg-background .photo-overlay{width:100%;opacity:.45;}
     .scen-head{flex-direction:column;}
     .scen-head .photo{width:100%;}
     .num-row,.big-card.stacked .num-row{grid-template-columns:30px minmax(0,1fr);column-gap:14px;row-gap:16px;margin-bottom:32px;}
@@ -224,6 +226,8 @@
     .ux-row h4{flex:none;}
     .sc-row,.sc-two,.final-row{flex-direction:column;}
     .final-row .arrow{transform:rotate(90deg);}
+    .feature-pair{flex-direction:column;}
+    .feature-pair img{width:100%;}
     .final-row img{flex:none !important;width:100%;}
     .num-media img{max-width:100% !important;flex-basis:100% !important;}
   }
@@ -269,7 +273,7 @@
 
   <!-- BACKGROUND -->
   <section class="bg-background section-pad reveal">
-    <div class="photo-overlay" style="background-image:url('visionai_assets/bg_tv_photo_v3.png');"></div>
+    <img class="photo-overlay" src="visionai_assets/bg_tv_photo_v3.png?v=3" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="label" style="color:var(--white);">BACKGROUND</div>
       <h2 class="h2" style="max-width:none;">There is more content than ever, yet watching has become increasingly fragmented.</h2>
@@ -391,7 +395,10 @@
         <p>Requests such as &ldquo;something light and funny tonight,&rdquo; &ldquo;who is this actor,&rdquo; or &ldquo;show related clips&rdquo; surface concise cards tied to what is on screen.</p>
       </div>
 
-      <div class="feature-visual" style="margin-top:32px;"><img src="visionai_assets/feature1_two_screens.png" alt="Soccer match with player cards and related content mascot screen"></div>
+      <div class="feature-visual feature-pair" style="margin-top:32px;">
+        <img src="visionai_assets/feature1_tv_stats.png" alt="TV showing all-time head-to-head stats between Helena and Veluna with related content cards" style="flex:860 1 0;">
+        <img src="visionai_assets/feature1_related.png" alt="Related content row featuring the Helena mascot with suggested follow-up prompts" style="flex:866 1 0;">
+      </div>
 
       <div class="reflection reveal">
         <div class="r-label">Reflection</div>
@@ -401,7 +408,6 @@
         <p>These observations pushed me to consider how designers might move beyond optimizing control, toward creating AI systems that support reflection and agency without encouraging passive dependence.</p>
       </div>
     </div>
-    <hr class="section-divider">
   </section>
 
   <!-- MAIN FEATURE 2 (Vision AI home) -->
@@ -439,7 +445,6 @@
         <p>We believe advanced AI should be equitable, not exclusive. This interaction model is the starting point for universal AI interactions on Samsung TV, raising the standard for open, sustainable AI experiences that welcome everyone.</p>
       </div>
     </div>
-    <hr class="section-divider">
   </section>
 
   <!-- MAIN FEATURE 2 (Screen Enhancing Home Environment) -->
