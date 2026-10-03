@@ -12,6 +12,9 @@
 <meta name="twitter:title" content="Chloe Kim — AI Product &amp; Interaction Designer">
 <meta name="theme-color" content="#F1F4F6">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:#F1F4F6; --fg:#171A1D;
@@ -198,6 +201,13 @@
   .hero-desc{margin-bottom:1.3rem;}
   .hero-where{animation-delay:0.8s;}
   @media(max-width:860px){.hero-name{white-space:normal;}.hero-desc br{display:none;}}
+
+  /* HERO v3: Outfit */
+  .hero-name,.hero-role,.hero-desc,.hero-where{font-family:'Outfit','Pretendard',sans-serif;letter-spacing:-0.01em;}
+  .hero-name{font-size:clamp(2rem,2.78vw,2.55rem);font-weight:600;}
+  .hero-role{font-size:clamp(1.25rem,2.08vw,1.95rem);font-weight:400;margin-bottom:1.5rem;}
+  .hero-desc,.hero-where{font-size:clamp(1rem,1.4vw,1.3rem);font-weight:300;line-height:1.45;}
+  .hero-desc{margin-bottom:1.4rem;}
 </style>
 </head>
 <body>
@@ -222,7 +232,7 @@
     <h1 class="hero-name">Chloe Kim</h1>
     <div class="hero-role">AI Interaction Designer focused on human-centered intelligent experiences.</div>
     <p class="hero-desc">I design interactions across AI, screens, and embodied products &ndash; <br>exploring how intelligent technology fits into everyday life.</p>
-    <p class="hero-where">Now Harvard MDE &nbsp;&middot;&nbsp; Prev. Samsung Electronics<br>Cambridge, Massachusetts</p>
+    <p class="hero-where">Harvard MDE &nbsp;&middot;&nbsp; Prev. Samsung Electronics<br>Cambridge, Massachusetts</p>
   </div>
   <a href="#work" class="scroll-arrow" aria-label="Scroll to work">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
