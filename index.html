@@ -190,6 +190,14 @@
   /* SCROLL REVEAL (same motion as project pages) */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
   .reveal.is-in{opacity:1;transform:translateY(0);}
+
+  /* HERO v2 (from Figma) */
+  .hero-name{font-size:clamp(2rem,2.8vw,2.55rem);font-weight:600;line-height:1.15;letter-spacing:-0.02em;color:#26282b;margin-bottom:0.1rem;}
+  .hero-role{font-size:clamp(1.25rem,2.1vw,1.9rem);font-weight:600;line-height:1.25;letter-spacing:-0.015em;color:#26282b;white-space:normal;margin-bottom:1.55rem;}
+  .hero-desc,.hero-where{font-family:var(--sans);font-size:clamp(1rem,1.37vw,1.26rem);font-weight:400;line-height:1.45;color:#26282b;margin:0;opacity:0;animation:heroReveal 1.1s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;}
+  .hero-desc{margin-bottom:1.3rem;}
+  .hero-where{animation-delay:0.8s;}
+  @media(max-width:860px){.hero-name{white-space:normal;}.hero-desc br{display:none;}}
 </style>
 </head>
 <body>
@@ -212,7 +220,9 @@
 <div class="hero-info-block page-view active" id="top" data-view="work" style="--pv-display:flex;">
   <div class="hero-intro">
     <h1 class="hero-name">Chloe Kim</h1>
-    <div class="hero-role">AI Product &amp; Interaction Designer</div>
+    <div class="hero-role">AI Interaction Designer focused on human-centered intelligent experiences.</div>
+    <p class="hero-desc">I design interactions across AI, screens, and embodied products &ndash; <br>exploring how intelligent technology fits into everyday life.</p>
+    <p class="hero-where">Now Harvard MDE &nbsp;&middot;&nbsp; Prev. Samsung Electronics<br>Cambridge, Massachusetts</p>
   </div>
   <a href="#work" class="scroll-arrow" aria-label="Scroll to work">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
