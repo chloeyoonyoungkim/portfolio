@@ -481,6 +481,14 @@
   /* About: remove divider lines */
   .about-section,.info-grid,.contact-section,footer{border-top:none !important;}
   .contact-section .link-item{border-top:none !important;border-bottom:none !important;}
+  /* scale back up 10% (desktop) */
+  @media(min-width:861px){
+    html{font-size:80.2% !important;}
+    :root{--g5:max(1.5rem, calc((100% - 990px) / 2)) !important;}
+    .wl-img{width:118px;}
+    .about-body{grid-template-columns:285px minmax(0,1fr) !important;}
+    .about-body img{max-width:285px !important;}
+  }
 </style>
 </head>
 <body>
