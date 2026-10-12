@@ -14,6 +14,7 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -470,6 +471,16 @@
     .about-body{grid-template-columns:259px minmax(0,1fr) !important;}
     .about-body img{max-width:259px !important;}
   }
+  /* project titles = SELECTED WORKS size, keep weight */
+  .wl-title{font-size:0.95rem !important;line-height:1.3 !important;letter-spacing:0 !important;max-width:24ch;}
+  @media(max-width:860px){.wl-title{font-size:0.82rem !important;}}
+  /* intro in ABC Marist Book (falls back to Newsreader where Marist isn't installed/licensed) */
+  .hx-hi,.hx-lead,.hx-lead *{font-family:'ABC Marist','ABC Marist Book','ABC Marist Unlicensed Trial Book','Newsreader',Georgia,serif !important;font-weight:400 !important;letter-spacing:-0.005em !important;}
+  .hx-lead b{font-weight:500 !important;}
+  .hx-hi{font-weight:500 !important;}
+  /* About: remove divider lines */
+  .about-section,.info-grid,.contact-section,footer{border-top:none !important;}
+  .contact-section .link-item{border-top:none !important;border-bottom:none !important;}
 </style>
 </head>
 <body>
