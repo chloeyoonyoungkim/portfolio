@@ -399,7 +399,7 @@
   /* overall scale 90% (rem-based; works the same in Chrome & Safari) */
   html{font-size:90%;}
   :root{--g5:max(1.5rem, calc((100% - 1152px) / 2));}
-  .info-col{max-width:810px !important;}
+  .info-col{max-width:58rem !important;}
   .wl-img{width:119px;}
   .about-body img{max-width:288px !important;}
   /* ===== Selected Works: expandable list ===== */
@@ -443,6 +443,10 @@
   .info-col{width:100% !important;box-sizing:border-box;justify-self:center;padding-left:1.5rem !important;padding-right:1.5rem !important;}
   .exp-row{grid-template-columns:6rem minmax(0,1fr) !important;}
   .exp-row > *{min-width:0;}
+  /* about intro: centered, narrower */
+  .about-body{max-width:58rem !important;margin:0 auto !important;padding-left:1.5rem !important;padding-right:1.5rem !important;grid-template-columns:288px minmax(0,1fr) !important;gap:3.5rem !important;box-sizing:border-box;}
+  .about-body .about-col:first-child{align-items:flex-start !important;}
+  @media(max-width:860px){.about-body{grid-template-columns:1fr !important;gap:0 !important;}.about-body .about-col:first-child{align-items:center !important;}}
 </style>
 </head>
 <body>
@@ -555,7 +559,7 @@
       <img src="about_photo.jpg" alt="Chloe YoonYoung Kim" style="width:100%; max-width:320px; aspect-ratio:320/382; height:auto; border-radius:16px; object-fit:cover; display:block;">
     </div>
     <div class="about-col">
-      <h2 style="font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700;margin-bottom:1.5rem;text-align:left;">I&rsquo;m Chloe &mdash; I design how people talk to, understand, and live with AI.</h2>
+      <h2 style="font-size:clamp(1.3rem,2vw,1.7rem);font-weight:500;margin-bottom:1.5rem;text-align:left;">I&rsquo;m Chloe &mdash; I design how people talk to, understand, and live with AI.</h2>
       <p>I spent four years at Samsung designing interactions for AI TVs, home robots, and connected devices. That work made me curious about how technology should behave when it becomes part of everyday life.</p>
       <p>I&rsquo;m drawn to the small moments that shape our relationship with AI: when it speaks, when it stays quiet, and how people know what it&rsquo;s doing. I use research and prototyping to make those interactions easier to understand and control.</p>
       <p>I&rsquo;m now studying Design Engineering at Harvard, where I&rsquo;m exploring human&ndash;AI interaction beyond the screen, especially in health and well-being.</p>
