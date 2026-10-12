@@ -447,6 +447,29 @@
   .about-body{max-width:58rem !important;margin:0 auto !important;padding-left:1.5rem !important;padding-right:1.5rem !important;grid-template-columns:288px minmax(0,1fr) !important;gap:3.5rem !important;box-sizing:border-box;}
   .about-body .about-col:first-child{align-items:flex-start !important;}
   @media(max-width:860px){.about-body{grid-template-columns:1fr !important;gap:0 !important;}.about-body .about-col:first-child{align-items:center !important;}}
+  /* tighter overall width */
+  :root{--g5:max(1.5rem, calc((100% - 1000px) / 2)) !important;}
+  .wl-row{grid-template-columns:minmax(0,1fr) minmax(0,21rem) minmax(0,21rem) !important;column-gap:2.2rem !important;}
+  .wl-title{font-size:1.3rem !important;}
+  .wl-meta{flex-wrap:wrap;row-gap:0.3rem;}
+  footer{padding-left:var(--g5) !important;padding-right:var(--g5) !important;}
+  @media (hover:none), (max-width:860px){.wl-row{grid-template-columns:1fr !important;}.wl-title{font-size:1.2rem !important;}}
+  /* overall text 10% smaller */
+  html{font-size:81% !important;}
+  @media(max-width:860px){html{font-size:90% !important;}}
+  /* greeting same size as the intro lines */
+  .hx-hi{font-size:var(--flead) !important;line-height:1.25 !important;letter-spacing:0 !important;}
+  /* intro smaller */
+  :root{--flead:1.4rem !important;}
+  @media(max-width:860px){:root{--flead:1.05rem !important;}}
+  /* overall layout another 90% (desktop) */
+  @media(min-width:861px){
+    html{font-size:72.9% !important;}
+    :root{--g5:max(1.5rem, calc((100% - 900px) / 2)) !important;}
+    .wl-img{width:107px;}
+    .about-body{grid-template-columns:259px minmax(0,1fr) !important;}
+    .about-body img{max-width:259px !important;}
+  }
 </style>
 </head>
 <body>
@@ -470,7 +493,7 @@
   <div class="hero-intro hx">
     <div class="hx-text">
       <h1 class="hx-hi">Hi, I&rsquo;m Chloe.</h1>
-      <p class="hx-lead"><span class="hx-line" style="--d:.16s"><b>AI Interaction Designer</b>, previously <b>@Samsung</b> for four years,</span> <span class="hx-line" style="--d:.24s">now studying Design Engineering <b>@Harvard,</b></span> <span class="hx-line" style="--d:.32s">designing AI Glasses <b>@ Harvard Medical School.</b></span> <span class="hx-line" style="--d:.40s">I design how people talk to, understand, and live with AI.</span></p>
+      <p class="hx-lead"><span class="hx-line" style="--d:.16s"><b>AI Interaction Designer</b>, previously <b>@Samsung</b> for four years,</span> <span class="hx-line" style="--d:.24s">now studying Design Engineering <b>@Harvard,</b></span> <span class="hx-line" style="--d:.32s">designing AI Glasses <b>@ Harvard Medical School - AI &amp; Robotics Lab.</b></span> <span class="hx-line" style="--d:.40s">I design how people talk to, understand, and live with AI.</span></p>
       <p class="hx-award">Edison Awards 2025 &nbsp;&middot;&nbsp; iF Design Award Finalist 2026</p>
       <div class="hx-links"><a href="https://www.linkedin.com/in/chloeyoonyoung" target="_blank" rel="noopener">LinkedIn</a><a href="https://drive.google.com/file/d/10v3whlr5kiQus8UnVnteG7b87m_o5QkR/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="mailto:chloe_kim@mde.harvard.edu">Email</a></div>
     </div>
