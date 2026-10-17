@@ -470,9 +470,28 @@
     .about-body{grid-template-columns:259px minmax(0,1fr) !important;}
     .about-body img{max-width:259px !important;}
   }
+  /* project titles = SELECTED WORKS size, keep weight */
+  .wl-title{font-size:0.95rem !important;line-height:1.3 !important;letter-spacing:0 !important;max-width:24ch;}
+  @media(max-width:860px){.wl-title{font-size:0.82rem !important;}}
   /* About: remove divider lines */
   .about-section,.info-grid,.contact-section,footer{border-top:none !important;}
   .contact-section .link-item{border-top:none !important;border-bottom:none !important;}
+  /* scale back up 10% (desktop) */
+  @media(min-width:861px){
+    html{font-size:80.2% !important;}
+    :root{--g5:max(1.5rem, calc((100% - 990px) / 2)) !important;}
+    .wl-img{width:118px;}
+    .about-body{grid-template-columns:285px minmax(0,1fr) !important;}
+    .about-body img{max-width:285px !important;}
+  }
+  /* scale up 120% (desktop) */
+  @media(min-width:861px){
+    html{font-size:96.24% !important;}
+    :root{--g5:max(1.5rem, calc((100% - 1188px) / 2)) !important;}
+    .wl-img{width:142px;}
+    .about-body{grid-template-columns:342px minmax(0,1fr) !important;}
+    .about-body img{max-width:342px !important;}
+  }
 </style>
 </head>
 <body>
