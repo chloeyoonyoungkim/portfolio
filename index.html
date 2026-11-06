@@ -591,6 +591,14 @@
   .jk-main{font-family:'Inter Display','Inter','Pretendard',sans-serif;font-weight:400;font-size:clamp(2.1rem,4.3vw,4.4rem);line-height:1.04;letter-spacing:-.025em;margin:0;color:inherit;max-width:19ch;}
   .jk-sub{font-family:'Inter','Pretendard',sans-serif;font-weight:400;font-size:clamp(1rem,1.39vw,1.3rem);line-height:1.5;letter-spacing:-.005em;margin:clamp(1.4rem,2.6vw,2.4rem) 0 0;max-width:38em;color:inherit;}
   @media(max-width:860px){.jk-main{font-size:2.1rem;max-width:none}.jk-sub{font-size:1rem}}
+  /* smooth intro load: wait for fonts, then text + light fade up together */
+  .hero-info-block.jk .jk-intro,.hero-info-block.jk .jk-intro.lit{animation:none !important;}
+  .hero-info-block.jk .jk-main,.hero-info-block.jk .jk-sub{opacity:0;transform:translateY(22px);filter:blur(10px);}
+  .hero-info-block.jk.ready .jk-main{animation:introIn 1.6s cubic-bezier(.16,1,.3,1) .05s forwards;}
+  .hero-info-block.jk.ready .jk-sub{animation:introIn 1.6s cubic-bezier(.16,1,.3,1) .3s forwards;}
+  @keyframes introIn{to{opacity:1;transform:none;filter:blur(0)}}
+  #field{opacity:0;transition:opacity 2s ease .2s;}
+  .hero-info-block.jk.ready #field{opacity:1;}
 </style>
 </head>
 <body>
@@ -644,17 +652,6 @@
 
 
 
-<!-- PLACES -->
-<section class="cplaces page-view active" id="places" data-view="work" style="--pv-display:block;">
-  <h2>Places I&rsquo;ve worked</h2>
-  <div class="cplaces-list">
-    <div class="crow"><span class="y">2026</span><span class="o">Harvard University</span><span class="r">Master in Design Engineering</span></div>
-    <div class="crow"><span class="y">2022</span><span class="o">Samsung Electronics</span><span class="r">UX Designer, AI TV &amp; Home Robot</span></div>
-    <div class="crow"><span class="y">2022</span><span class="o">POSCO International</span><span class="r">UX / Product Designer</span></div>
-    <div class="crow"><span class="y">2021</span><span class="o">BMW Group Designworks</span><span class="r">UX Designer, Industry Collaboration</span></div>
-    <div class="crow"><span class="y">2019</span><span class="o">Amorepacific</span><span class="r">Graphic Designer</span></div>
-  </div>
-</section>
 
 <!-- ABOUT / BIO -->
 <section class="about-section page-view" id="about" data-view="about" style="--pv-display:block;">
@@ -876,6 +873,8 @@
     const lit=intro.cloneNode(true); lit.classList.add('lit'); lit.setAttribute('aria-hidden','true');
     lit.querySelectorAll('a').forEach(a=>{a.removeAttribute('href');a.tabIndex=-1;});
     intro.after(lit);
+    const go=()=>hero.classList.add('ready');
+    Promise.race([document.fonts?document.fonts.ready:Promise.resolve(),new Promise(r=>setTimeout(r,1500))]).then(()=>requestAnimationFrame(go));
     const touch=matchMedia('(hover:none)').matches; if(touch) hero.classList.add('touch');
     let W=0,H=0; const dpr=Math.min(2,window.devicePixelRatio||1);
     const size=()=>{W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);};
