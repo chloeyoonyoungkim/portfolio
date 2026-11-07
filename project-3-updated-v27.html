@@ -584,5 +584,45 @@
     els.forEach(el => io.observe(el));
   })();
 </script>
+<script>
+/* scroll-linked image reveal (ref. cristobalayala.com): frame opens, image settles */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const init=()=>{
+  const vw=innerWidth, vh0=innerHeight;
+  const bg=e=>{const b=getComputedStyle(e).backgroundImage;return b&&b.startsWith('url(');};
+  const ok=e=>{
+    if(e.closest('.scc,.cnav,nav,footer')||e.classList.contains('photo-overlay')) return false;
+    const r=e.getBoundingClientRect(); if(r.width<120||r.height<80) return false;
+    if(r.width>=vw*0.95) return false;               // full-bleed section backgrounds
+    if(r.top+scrollY<vh0*0.9) return false;            // first screen stays put
+    return true;
+  };
+  const els=[...document.querySelectorAll('img'),...[...document.querySelectorAll('main div,section div,div')].filter(bg)].filter((e,i,a)=>a.indexOf(e)===i).filter(ok);
+  const st=new Map(els.map(e=>[e,0]));
+  els.forEach(e=>{e.style.willChange='transform,clip-path,opacity';e.style.transformOrigin='50% 60%';});
+  let raf=0;
+  function frame(){
+    raf=0; const vh=innerHeight; let moving=false;
+    els.forEach(e=>{
+      const r=e.getBoundingClientRect(); if(!r.width||r.bottom<-300||r.top>vh+300) return;
+      const target=Math.max(0,Math.min(1,(vh-r.top)/(vh*0.75)));
+      let p=st.get(e); p+=(target-p)*0.09; if(Math.abs(target-p)>0.001) moving=true; else p=target; st.set(e,p);
+      if(p>=0.999){ e.style.clipPath='';e.style.transform='';e.style.opacity=''; return; }
+      const k=1-Math.pow(1-p,3), inset=(1-k)*14;
+      e.style.clipPath=`inset(${inset}% ${inset*0.8}% ${inset}% ${inset*0.8}% round ${10+(1-k)*14}px)`;
+      e.style.transform=`translateY(${(1-k)*40}px) scale(${1.18-0.18*k})`;
+      e.style.opacity=(0.25+0.75*k).toFixed(3);
+    });
+    if(moving) raf=requestAnimationFrame(frame);
+  }
+  const kick=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
+  addEventListener('scroll',kick,{passive:true}); addEventListener('resize',kick);
+  document.addEventListener('click',()=>setTimeout(kick,60)); // view switches
+  kick();
+  };
+  if(document.readyState==='complete') init(); else addEventListener('load',init);
+})();
+</script>
 </body>
 </html>
