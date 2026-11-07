@@ -601,6 +601,10 @@
   .hero-info-block.jk.ready #field{opacity:1;}
   /* smaller project cards */
   @media(min-width:861px){.pg-title{font-size:18px !important;white-space:nowrap;}.pg-grid{max-width:960px !important;column-gap:clamp(1.5rem,5vw,72px) !important;row-gap:clamp(2.6rem,5.5vw,5rem) !important;}}
+  .jk-main{max-width:none !important;}
+  @media(max-width:860px){.jk-main br.jb{display:none}}
+  .jk-sub a{background:none !important;text-decoration:underline !important;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:currentColor;transition:opacity .2s;}
+  .jk-sub a:hover{opacity:.7;}
 </style>
 </head>
 <body>
@@ -624,8 +628,8 @@
 <header class="hero-info-block jk page-view active" id="top" data-view="work" style="--pv-display:flex;">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="jk-intro">
-    <h1 class="jk-main">Chloe Kim is a product designer shaping how people interact with emerging technologies.</h1>
-    <p class="jk-sub">Previously at Samsung, she designed AI experiences for TVs and home robots. She is now pursuing a <a href="https://mde.harvard.edu" target="_blank" rel="noopener">Master in Design Engineering at Harvard</a> and designing interactions for AI glasses at <a href="https://wang.hms.harvard.edu" target="_blank" rel="noopener">Harvard Medical School&rsquo;s AI &amp; Robotics Lab</a>.</p>
+    <h1 class="jk-main">Chloe Kim is a product designer<br class="jb"> shaping how people interact<br class="jb"> with emerging technologies.</h1>
+    <p class="jk-sub">Previously at <a href="https://www.samsung.com" target="_blank" rel="noopener">Samsung</a>, she designed AI experiences for TVs and home robots. She is now pursuing a <a href="https://mde.harvard.edu/" target="_blank" rel="noopener">Master in Design Engineering at Harvard</a> and designing interactions for AI glasses at Harvard Medical School&rsquo;s <a href="https://wang.hms.harvard.edu/" target="_blank" rel="noopener">AI &amp; Robotics Lab</a>.</p>
   </div>
 </header>
 
