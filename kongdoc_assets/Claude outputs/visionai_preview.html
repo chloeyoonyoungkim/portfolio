@@ -353,6 +353,9 @@
   .scc-text h4{color:#f2f0ec !important;}
   .scc-text p{color:rgba(242,240,236,.62) !important;}
   .scc-media img{box-shadow:0 6px 20px -10px rgba(0,0,0,.6) !important;}
+  /* ===== scroll-linked image reveal (ref. cristobalayala.com) ===== */
+  img.sr{will-change:transform,clip-path,opacity;transform-origin:50% 60%;}
+  @media (prefers-reduced-motion:reduce){img.sr{transform:none !important;clip-path:none !important;opacity:1 !important;}}
 </style>
 </head>
 <body>
@@ -638,6 +641,32 @@
     vp.tabIndex=0; vp.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
     addEventListener('resize',()=>jump(n+(cur()%n)));
   });
+})();
+</script>
+<script>
+/* images grow into place as you scroll (scroll-linked, slow) */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const imgs=[...document.querySelectorAll('img')].filter(i=>!i.closest('.scc')&&!i.classList.contains('photo-overlay')&&!i.closest('.hero, header')&&!i.src.includes('hero_full'));
+  imgs.forEach(i=>i.classList.add('sr'));
+  const st=new Map(imgs.map(i=>[i,0]));
+  let raf=0;
+  function frame(){
+    raf=0; const vh=innerHeight; let moving=false;
+    imgs.forEach(i=>{
+      const r=i.getBoundingClientRect(); if(r.bottom<-200||r.top>vh+200) return;
+      const target=Math.max(0,Math.min(1,(vh-r.top)/(vh*0.75)));
+      let p=st.get(i); p+= (target-p)*0.09; if(Math.abs(target-p)>0.001) moving=true; else p=target; st.set(i,p);
+      const e=1-Math.pow(1-p,3);
+      const inset=(1-e)*14;
+      i.style.clipPath=`inset(${inset}% ${inset*0.8}% ${inset}% ${inset*0.8}% round ${10+(1-e)*14}px)`;
+      i.style.transform=`translateY(${(1-e)*40}px) scale(${1.18-0.18*e})`;
+      i.style.opacity=(0.25+0.75*e).toFixed(3);
+    });
+    if(moving) raf=requestAnimationFrame(frame);
+  }
+  const kick=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
+  addEventListener('scroll',kick,{passive:true}); addEventListener('resize',kick); kick();
 })();
 </script>
 </body>
