@@ -319,6 +319,40 @@
   .scc-text h4{font-size:15.2px !important;font-weight:500 !important;color:var(--ink) !important;}
   @media(max-width:768px){h1.h1{font-size:28px !important}h2.h2{font-size:23px !important}.subtitle{font-size:15px !important}.reflection{padding:24px 20px}.reflection .r-title{font-size:18px !important}.section-pad,section.bg-feature[style*="padding-top"]{padding-top:72px !important;padding-bottom:72px !important}}
   .scen-head h2.h2 .light,h2.h2 .light{display:block !important;font-size:13.5px !important;font-weight:400 !important;color:var(--body) !important;line-height:1.7 !important;letter-spacing:0 !important;margin-top:12px;}
+  /* ===== scenario rail: vertical cards, side-scrolling (2026-11-07) ===== */
+  .scc-viewport{gap:16px;scroll-snap-type:x mandatory;scroll-padding-left:0;border-radius:0 !important;}
+  .scc-card{flex:0 0 calc((100% - 16px) / 2.15) !important;grid-template-columns:1fr !important;align-items:start !important;align-content:start;gap:22px !important;background:#333335 !important;border:0 !important;border-radius:28px !important;padding:26px 26px 32px !important;scroll-snap-align:start;}
+  .scc-media img{border-radius:6px !important;aspect-ratio:16/9;object-fit:cover;}
+  .scc-text h4{margin:0 0 10px !important;}
+  .scc-text p{color:rgba(232,228,220,.62) !important;}
+  .scc-btn.prev{left:-64px !important;} .scc-btn.next{right:-64px !important;}
+  @media(max-width:1100px){.scc-btn.prev{left:-50px !important}.scc-btn.next{right:-50px !important}}
+  @media(max-width:768px){.scc-card{flex-basis:84% !important;padding:18px 18px 24px !important;border-radius:22px !important;}}
+  /* ===== centered rail: active card in the middle, dimmed neighbours (2026-11-07) ===== */
+  .scc-viewport{scroll-snap-type:x mandatory;gap:18px;}
+  .scc-card{flex:0 0 42% !important;scroll-snap-align:center !important;background:#161617 !important;border:1px solid rgba(255,255,255,.14) !important;border-radius:40px !important;padding:30px 30px 38px !important;opacity:.32;transition:opacity .45s ease;}
+  .scc-card.is-active{opacity:1;}
+  .scc-text p{color:rgba(232,228,220,.6) !important;}
+  @media(max-width:768px){.scc-card{flex-basis:82% !important;border-radius:26px !important;padding:18px 18px 24px !important;}}
+  /* ===== light cards (ref. product card rail) (2026-11-07) ===== */
+  .scc-card{display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:0 !important;background:#F4F2F0 !important;border:0 !important;border-radius:14px !important;padding:30px 28px 34px !important;opacity:.45;}
+  .scc-card.is-active{opacity:1;}
+  .scc-text{display:contents;}
+  .scc-text h4{order:0;text-align:center;font-size:14.5px !important;font-weight:500 !important;color:#1d1d1f !important;line-height:1.3 !important;letter-spacing:-.01em;margin:0 0 22px !important;}
+  .scc-media{order:1;}
+  .scc-media img{border-radius:6px !important;box-shadow:0 6px 24px -10px rgba(0,0,0,.25);}
+  .scc-text p{order:2;text-align:center;font-size:13.5px !important;color:#4d4d51 !important;line-height:1.6 !important;margin:24px 0 0 !important;}
+  @media(max-width:768px){.scc-card{padding:22px 18px 24px !important;border-radius:12px !important;}.scc-text h4{font-size:14px !important;margin-bottom:16px !important;}}
+  /* tighter card, same font + image size */
+  .scc-card{flex-basis:calc(42% - 24px) !important;padding:18px 16px 22px !important;border-radius:12px !important;}
+  .scc-text h4{margin-bottom:14px !important;}
+  .scc-text p{margin-top:14px !important;}
+  .scc-text h4{text-wrap:balance;max-width:28ch;margin-left:auto !important;margin-right:auto !important;}
+  /* dark card #353535 */
+  .scc-card{background:#353535 !important;}
+  .scc-text h4{color:#f2f0ec !important;}
+  .scc-text p{color:rgba(242,240,236,.62) !important;}
+  .scc-media img{box-shadow:0 6px 20px -10px rgba(0,0,0,.6) !important;}
 </style>
 </head>
 <body>
@@ -401,7 +435,7 @@
           <div class="scc-viewport">
           <article class="scc-card" aria-roledescription="slide" aria-label="1 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row1.png" alt="Soccer stadium with teal bounding box overlays"></div>
-            <div class="scc-text"><h4>Identifying the Type of Content Being Watched</h4><p>By detecting on-screen elements, Vision AI recognizes sports content in real time. This context awareness enables timely and relevant information during live viewing.</p></div>
+            <div class="scc-text"><h4>Identifying the Type<br>of Content Being Watched</h4><p>By detecting on-screen elements, Vision AI recognizes sports content in real time. This context awareness enables timely and relevant information during live viewing.</p></div>
           </article>
           <article class="scc-card" aria-roledescription="slide" aria-label="2 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row2_v2.png" alt="Soccer players celebrating with voice command bubbles"></div>
@@ -409,7 +443,7 @@
           </article>
           <article class="scc-card" aria-roledescription="slide" aria-label="3 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row3_v2.png" alt="Soccer match with stat card overlay"></div>
-            <div class="scc-text"><h4>Answering Casual Questions with Contextual, Visual Responses</h4><p>Users can ask casual questions such as &ldquo;Who&rsquo;s going to win today?&rdquo; Vision AI responds with contextual answers based on relevant articles, statistics, and available data.</p></div>
+            <div class="scc-text"><h4>Answering Casual Questions<br>with Contextual, Visual Responses</h4><p>Users can ask casual questions such as &ldquo;Who&rsquo;s going to win today?&rdquo; Vision AI responds with contextual answers based on relevant articles, statistics, and available data.</p></div>
           </article>
           </div>
           <button class="scc-btn next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -582,24 +616,27 @@
   }
 </script>
 <script>
-/* scenario carousels: infinite loop */
+/* scenario rails: centered active card, infinite loop */
 (function(){
   document.querySelectorAll('.scc').forEach(c=>{
     const vp=c.querySelector('.scc-viewport'), prev=c.querySelector('.prev'), next=c.querySelector('.next');
     const real=[...vp.children], n=real.length;
-    // clones at both ends for seamless wrap
-    const first=real[0].cloneNode(true), last=real[n-1].cloneNode(true);
-    [first,last].forEach(k=>{k.setAttribute('aria-hidden','true');k.removeAttribute('aria-label');});
-    vp.appendChild(first); vp.insertBefore(last,real[0]);
-    const W=()=>vp.clientWidth;
-    const jump=i=>{vp.style.scrollBehavior='auto';vp.style.scrollSnapType='none';vp.scrollLeft=i*W();void vp.offsetWidth;vp.style.scrollSnapType='';vp.style.scrollBehavior='';};
-    jump(1);
-    const pos=()=>Math.round(vp.scrollLeft/W());
-    const go=d=>vp.scrollTo({left:(pos()+d)*W(),behavior:'smooth'});
+    const mk=k=>{const x=k.cloneNode(true);x.setAttribute('aria-hidden','true');x.removeAttribute('aria-label');x.querySelectorAll('img').forEach(i=>i.alt='');return x;};
+    real.forEach(k=>vp.appendChild(mk(k)));
+    real.slice().reverse().forEach(k=>vp.insertBefore(mk(k),vp.firstChild));
+    const cards=[...vp.children];
+    const step=()=>cards[1].offsetLeft-cards[0].offsetLeft;
+    const centerX=i=>cards[i].offsetLeft-(vp.clientWidth-cards[i].offsetWidth)/2;
+    const cur=()=>{const mid=vp.scrollLeft+vp.clientWidth/2;let best=0,bd=1e9;cards.forEach((k,i)=>{const d=Math.abs(k.offsetLeft+k.offsetWidth/2-mid);if(d<bd){bd=d;best=i}});return best;};
+    const mark=()=>{const a=cur();cards.forEach((k,i)=>k.classList.toggle('is-active',i===a));};
+    const jump=i=>{vp.style.scrollBehavior='auto';vp.style.scrollSnapType='none';vp.scrollLeft=centerX(i);void vp.offsetWidth;vp.style.scrollSnapType='';vp.style.scrollBehavior='';mark();};
+    jump(n);
+    const go=d=>vp.scrollTo({left:centerX(cur()+d),behavior:'smooth'});
     prev.addEventListener('click',()=>go(-1)); next.addEventListener('click',()=>go(1));
-    let t; vp.addEventListener('scroll',()=>{clearTimeout(t);t=setTimeout(()=>{const p=pos(); if(p===0) jump(n); else if(p===n+1) jump(1);},120);},{passive:true});
+    cards.forEach((k,i)=>k.addEventListener('click',e=>{if(!k.classList.contains('is-active')){e.preventDefault();vp.scrollTo({left:centerX(i),behavior:'smooth'});}}));
+    let t; vp.addEventListener('scroll',()=>{requestAnimationFrame(mark);clearTimeout(t);t=setTimeout(()=>{const i=cur(); if(i<n) jump(i+n); else if(i>=2*n) jump(i-n);},140);},{passive:true});
     vp.tabIndex=0; vp.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
-    addEventListener('resize',()=>jump(Math.min(n,Math.max(1,pos()))));
+    addEventListener('resize',()=>jump(n+(cur()%n)));
   });
 })();
 </script>
