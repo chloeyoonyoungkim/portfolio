@@ -286,6 +286,39 @@
   .scc{margin-bottom:72px !important;}
   .scc-title{margin-bottom:28px !important;}
   @media(max-width:768px){.scc-card{grid-template-columns:1fr !important;padding:0 !important;gap:16px !important;}}
+  /* ===== ALLO-style layout (2026-11-07) — body stays Pretendard 13.5 ===== */
+  :root{--bg-feature:#0b0b0c;--line:rgba(255,255,255,.08);--ink:#e8e4dc;--ink-dim:rgba(232,228,220,.38);}
+  /* type hierarchy (ALLO) */
+  .label{font-size:10.4px !important;font-weight:500 !important;letter-spacing:.2em !important;color:var(--ink-dim) !important;margin-bottom:14px !important;}
+  .meta-col .label{font-size:9.3px !important;letter-spacing:.16em !important;margin-bottom:8px !important;}
+  h1.h1{font-size:37.4px !important;font-weight:400 !important;letter-spacing:-.01em !important;line-height:1.25 !important;color:var(--ink) !important;}
+  .subtitle{font-size:17px !important;font-weight:300 !important;line-height:1.5 !important;}
+  h2.h2{font-size:31.2px !important;font-weight:400 !important;line-height:1.2 !important;color:var(--ink) !important;max-width:none !important;}
+  h2.h2 .light{font-size:.6em !important;font-weight:300 !important;}
+  .meta-col p{font-size:12.5px !important;font-weight:300 !important;color:rgba(232,228,220,.7) !important;}
+  .confidential-note{font-size:12.5px !important;font-weight:300 !important;background:rgba(255,255,255,.04) !important;border:1px solid var(--line);}
+  /* sections: one dark canvas separated by hairlines, generous spacing */
+  .bg-feature{background:var(--bg-feature) !important;border-top:1px solid var(--line);}
+  .section-pad{padding-top:120px !important;padding-bottom:120px !important;}
+  section.bg-feature[style*="padding-top"]{padding-top:120px !important;}
+  /* background cards → translucent ALLO stat cards */
+  .stat-card{background:rgba(20,20,22,.72) !important;border:1px solid var(--line);border-radius:14px !important;padding:24px 22px 26px !important;backdrop-filter:blur(8px);}
+  .stat-card h4{font-size:15.2px !important;font-weight:500 !important;color:var(--ink) !important;margin-bottom:14px !important;}
+  /* feature rows → hairline key/value rows */
+  .ux-row{border-top:1px solid var(--line);padding:26px 0 !important;margin:0 !important;gap:48px !important;}
+  .ux-row:last-of-type{border-bottom:1px solid var(--line);}
+  .ux-row h4{font-size:15.2px !important;font-weight:500 !important;color:var(--ink) !important;flex-basis:280px !important;}
+  /* scenario boxes → translucent panels */
+  .scenario-card{background:rgba(255,255,255,.035) !important;border:1px solid var(--line);border-radius:16px !important;}
+  .scenario-card .sc-label{font-size:12.5px !important;font-weight:500 !important;color:var(--ink-dim) !important;text-transform:uppercase;letter-spacing:.14em;}
+  /* reflection → ALLO feature block */
+  .reflection{margin-top:56px !important;padding:36px 40px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);}
+  .reflection .r-label{font-size:12.5px !important;font-weight:300 !important;color:var(--ink-dim) !important;margin-bottom:6px !important;}
+  .reflection .r-title{font-size:21.6px !important;font-weight:600 !important;line-height:1.3 !important;color:var(--ink) !important;margin-bottom:18px !important;}
+  .scc-title{font-size:15.2px !important;font-weight:500 !important;color:var(--ink) !important;}
+  .scc-text h4{font-size:15.2px !important;font-weight:500 !important;color:var(--ink) !important;}
+  @media(max-width:768px){h1.h1{font-size:28px !important}h2.h2{font-size:23px !important}.subtitle{font-size:15px !important}.reflection{padding:24px 20px}.reflection .r-title{font-size:18px !important}.section-pad,section.bg-feature[style*="padding-top"]{padding-top:72px !important;padding-bottom:72px !important}}
+  .scen-head h2.h2 .light,h2.h2 .light{display:block !important;font-size:13.5px !important;font-weight:400 !important;color:var(--body) !important;line-height:1.7 !important;letter-spacing:0 !important;margin-top:12px;}
 </style>
 </head>
 <body>
@@ -355,7 +388,7 @@
       <div class="label">MAIN SCENARIOS</div>
       <div class="scen-head">
         <div class="text">
-          <h2 class="h2">Key Scenarios at CES 2026 <span class="light">(26.01.05 Las Vegas)</span></h2>
+          <h2 class="h2">Key Scenarios at CES 2026</h2>
           <p class="body-text" style="margin-bottom:0;">I structured key scenarios showcased during the CES 2026 VP keynote.</p>
         </div>
         <img class="photo" src="visionai_assets/mainscen_presenter.png" alt="Presenter on stage at CES 2026 keynote">
