@@ -16,27 +16,32 @@
 <style>
   @font-face{
     font-family:'Pretendard';
-    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Light.woff2') format('woff2');
+    font-weight:300; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'Pretendard';
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
     font-weight:400; font-style:normal; font-display:swap;
   }
   @font-face{
     font-family:'Pretendard';
-    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2') format('woff2');
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Medium.woff2') format('woff2');
     font-weight:500; font-style:normal; font-display:swap;
   }
   @font-face{
     font-family:'Pretendard';
-    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
     font-weight:600; font-style:normal; font-display:swap;
   }
   @font-face{
     font-family:'Pretendard';
-    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
     font-weight:700; font-style:normal; font-display:swap;
   }
   @font-face{
     font-family:'Pretendard';
-    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-ExtraBold.woff2') format('woff2');
+    src:url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-ExtraBold.woff2') format('woff2');
     font-weight:800; font-style:normal; font-display:swap;
   }
 
@@ -361,6 +366,37 @@
   .ux-row p{font-size:13.5px !important;}
   .reflection .r-title{font-size:24px !important;font-weight:400 !important;letter-spacing:-1px;line-height:1.2 !important;}
   @media(max-width:768px){.reflection .r-title{font-size:19px !important;}}
+  /* ===== restructure (2026-11-08) ===== */
+  .intro-text{max-width:720px;margin-top:4px;}
+  .intro-text .body-text{margin:0 0 12px;}
+  .challenge{margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);max-width:820px;}
+  .challenge .label{margin-bottom:12px !important;}
+  .challenge-q{font-size:23px;font-weight:400;line-height:1.35;letter-spacing:-1px;color:var(--white);margin:0;}
+  .chapter{padding:0;}
+  .challenge-band{background:#212121;padding:48px 0 52px !important;}
+  .challenge-band .challenge{margin:0;padding:0;border:0;}
+  .challenge-band + section{padding-top:56px !important;}
+  .chapter span{display:block;font-size:10.4px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,228,220,.38);padding-top:18px;border-top:1px solid rgba(255,255,255,.12);}
+  .feature-intro{max-width:720px;margin:-6px 0 28px !important;}
+  .principle + .principle{margin-top:64px;}
+  .p-title{font-size:24px;font-weight:400;letter-spacing:-1px;line-height:1.25;color:var(--white);margin:0 0 14px;}
+  .principle > .body-text{max-width:720px;margin:0 0 8px;}
+  .principle-img{margin-top:24px;max-width:640px;}
+  @media(max-width:768px){.challenge-q{font-size:18px}.p-title{font-size:19px}}
+  /* ===== hero = ALLO layout + gradient (2026-11-08) ===== */
+  .vhero{position:relative;overflow:hidden;background:#141414;padding:0 0 80px;}
+  .vhero-bg{position:absolute;left:0;right:0;bottom:0;height:70%;background:radial-gradient(ellipse at 85% 30%,#ec4899 0%,transparent 55%),radial-gradient(ellipse at 15% 80%,#7c3aed 0%,transparent 60%);opacity:.22;filter:blur(50px) saturate(1.3);pointer-events:none;}
+  .vhero-image{position:relative;z-index:2;max-width:1110px;margin:0 auto;border-radius:0 0 4px 4px;overflow:hidden;}
+  .vhero-image img{width:100%;height:auto;aspect-ratio:1110/619;object-fit:cover;object-position:center;display:block;}
+  .vhero-content{position:relative;z-index:2;max-width:864px;margin:0 auto;padding:51px 0 0;}
+  .vhero-tag{display:block;font-size:9.92px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.75);margin-bottom:16px;}
+  h1.h1.vhero-title{margin:0 0 28px !important;line-height:1.25 !important;}
+  .vhero .confidential-note{margin:0 0 40px;}
+  .vhero-meta{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:40px;max-width:880px;}
+  .vmeta-label{display:block;font-size:9.28px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.38);margin-bottom:11px;}
+  .vmeta-value{display:block;font-size:12.48px;font-weight:300;line-height:1.6;color:rgba(232,228,220,.7);max-width:240px;}
+  .vmeta-value a.award-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
+  @media(max-width:860px){.vhero-content{padding:38px 24px 0}.vhero-meta{grid-template-columns:1fr;gap:22px}.vmeta-value{max-width:none}}
 </style>
 </head>
 <body>
@@ -372,86 +408,90 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero-visual">
-    <img src="visionai_assets/hero_full.png" alt="Samsung Vision AI hero - TV with recipe screen and remote control">
-  </div>
-
-  <section class="hero-info">
-    <div class="wrap">
-      <div class="label">AI SCREEN EXPERIENCE&nbsp;&middot; 2026</div>
-      <h1 class="h1">Samsung Vision AI</h1>
-      <p class="subtitle">How can AI reshape everyday attention, choice, and agency when embedded into a familiar domestic object like a TV?</p>
-      <div class="confidential-note">Some details of this project are confidential. This case study shares publicly available information and what I learned along the way. If you&rsquo;d like to chat about my experience, feel free to email me! &#128522;</div>
-      <div class="meta-row">
-        <div class="meta-col">
-          <div class="label">MY ROLE</div>
-          <p>UX Designer<br>&amp; Interaction Designer</p>
-        </div>
-        <div class="meta-col">
-          <div class="label">THE TEAM</div>
-          <p>The project was developed by a cross-functional team including UX and visual designers, AI researchers, software engineers, and product managers.</p>
-        </div>
-        <div class="meta-col">
-          <div class="label">AWARDS</div>
-          <p>The Edison Awards 2025<br><a class="award-link" href="https://ifdesign.com/en/winner-ranking/project/samsung-vision-ai-tv/758333" target="_blank" rel="noopener">IF Awards Finalist 2026</a></p>
-        </div>
-      </div>
-      <hr class="divider">
+  <!-- HERO (ALLO layout) -->
+  <div class="vhero">
+    <div class="vhero-bg"></div>
+    <div class="vhero-image">
+      <img src="visionai_assets/hero_full.png" alt="Samsung Vision AI hero - TV with recipe screen and remote control">
     </div>
-  </section>
+    <div class="vhero-content">
+      <span class="vhero-tag">AI Screen Experience &middot; 2026</span>
+      <h1 class="h1 vhero-title">Samsung Vision AI: Reimagining Everyday TV Interaction</h1>
+      <div class="confidential-note">Some details of this project are confidential. This case study shares publicly available information and what I learned along the way. If you&rsquo;d like to chat about my experience, feel free to email me! &#128522;</div>
+      <div class="vhero-meta">
+        <div class="meta-col"><span class="vmeta-label">My Role</span><span class="vmeta-value">UX Designer<br>&amp; Interaction Designer</span></div>
+        <div class="meta-col"><span class="vmeta-label">The Team</span><span class="vmeta-value">The project was developed by a cross-functional team including UX and visual designers, AI researchers, software engineers, and product managers.</span></div>
+        <div class="meta-col"><span class="vmeta-label">Awards</span><span class="vmeta-value">The Edison Awards 2025<br><a class="award-link" href="https://ifdesign.com/en/winner-ranking/project/samsung-vision-ai-tv/758333" target="_blank" rel="noopener">IF Awards Finalist 2026</a></span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- BACKGROUND -->
   <section class="bg-background section-pad reveal">
     <img class="photo-overlay" src="visionai_assets/bg_tv_photo_v3.png?v=3" alt="" aria-hidden="true">
     <div class="wrap">
       <div class="label" style="color:var(--white);">BACKGROUND</div>
-      <h2 class="h2" style="max-width:none;">There is more content than ever, yet watching has become increasingly fragmented.</h2>
+      <h2 class="h2" style="max-width:none;">More content than ever, but harder to actually enjoy.</h2>
+      <div class="intro-text">
+        <p class="body-text">With dozens of OTT apps and endless streaming catalogs, TVs have become increasingly complicated to navigate. What used to be a relaxing living room habit has turned into an endless cycle of searching, switching, and decision fatigue.</p>
+        <p class="body-text">Research in the UK revealed that viewers spend over 100 hours a year just deciding what to watch&mdash;turning leisure into a frustrating chore.</p>
+        <p class="body-text">In designing Vision AI, we tackled three core challenges:</p>
+      </div>
       <div class="stat-grid">
         <div class="stat-card">
-          <h4>Higher barriers</h4>
-          <p>As TV systems grow more complex, everyday viewing increasingly assumes technical confidence.<br>For many users, especially older adults or those unfamiliar with AI features, interaction itself becomes a barrier rather than an entry point.</p>
+          <h4>High Barrier to Entry</h4>
+          <p>Smart TVs assume technical fluency. Layered menus and complex navigation alienate casual users and older audiences before they even hit play.</p>
         </div>
         <div class="stat-card">
-          <h4>Overwhelming Choices</h4>
-          <p>With countless OTT apps, channels, and services available, the act of choosing has become a task in itself. Users often spend more time navigating options than engaging with what they came to watch.</p>
+          <h4>Decision Fatigue</h4>
+          <p>Endless recommendations often trigger decision paralysis. People spend more time scrolling through rows of tiles than actually engaging with stories.</p>
         </div>
         <div class="stat-card">
-          <h4>Fragmented Experience</h4>
-          <p>As interfaces prioritize browsing and control, watching increasingly shifts away from immersion.<br>The experience becomes fragmented, shaped by constant searching, switching, and decision-making.</p>
+          <h4>Fragmented Flow</h4>
+          <p>Every search or setting adjustment takes over the entire display, abruptly breaking immersion and pulling viewers out of the moment.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN SCENARIOS -->
+  <!-- THE DESIGN CHALLENGE -->
+  <section class="challenge-band">
+    <div class="wrap">
+      <div class="challenge">
+        <div class="label">The Design Challenge</div>
+        <p class="challenge-q">How can an AI-powered TV eliminate browsing friction and bring effortless immersion back to the living room?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY SHOWCASE: CES 2026 -->
   <section class="bg-scenarios section-pad reveal">
     <div class="wrap">
-      <div class="label">MAIN SCENARIOS</div>
+      <div class="label">KEY SHOWCASE: CES 2026 KEYNOTE</div>
       <div class="scen-head">
         <div class="text">
-          <h2 class="h2">Key Scenarios at CES 2026</h2>
-          <p class="body-text" style="margin-bottom:0;">I structured key scenarios showcased during the CES 2026 VP keynote.</p>
+          <h2 class="h2">Bringing Vision AI to the global stage.</h2>
+          <p class="body-text" style="margin-bottom:0;">I structured the core interaction scenarios demonstrated during the CES 2026 keynote, showcasing how contextual AI transforms real-time viewing into active engagement.</p>
         </div>
         <img class="photo" src="visionai_assets/mainscen_presenter.png" alt="Presenter on stage at CES 2026 keynote">
       </div>
 
-      <div class="scc reveal" aria-roledescription="carousel" aria-label="CES Sports Scenario">
-        <h3 class="scc-title">CES Sports Scenario</h3>
+      <div class="scc reveal" aria-roledescription="carousel" aria-label="Live Sports Scenario">
+        <h3 class="scc-title">Live Sports Scenario</h3>
         <div class="scc-wrap">
           <button class="scc-btn prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="scc-viewport">
           <article class="scc-card" aria-roledescription="slide" aria-label="1 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row1.png" alt="Soccer stadium with teal bounding box overlays"></div>
-            <div class="scc-text"><h4>Identifying the Type<br>of Content Being Watched</h4><p>By detecting on-screen elements, Vision AI recognizes sports content in real time. This context awareness enables timely and relevant information during live viewing.</p></div>
+            <div class="scc-text"><h4>Real-Time Scene Recognition</h4><p>Detects on-screen sports action instantly to serve context-aware stats and insights.</p></div>
           </article>
           <article class="scc-card" aria-roledescription="slide" aria-label="2 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row2_v2.png" alt="Soccer players celebrating with voice command bubbles"></div>
-            <div class="scc-text"><h4>Personalizing the Viewing Experience Through Voice-Based Audio Control</h4><p>Based on research showing that users often feel frustrated by unwanted sounds during sports broadcasts, Vision AI allows users to control audio easily through voice commands.</p></div>
+            <div class="scc-text"><h4>Voice Audio Tuning</h4><p>Resolves viewer frustration with loud commentary or stadium noise by letting users isolate or balance crowd and voice levels with simple speech commands.</p></div>
           </article>
           <article class="scc-card" aria-roledescription="slide" aria-label="3 of 3">
             <div class="scc-media"><img src="visionai_assets/sports_row3_v2.png" alt="Soccer match with stat card overlay"></div>
-            <div class="scc-text"><h4>Answering Casual Questions<br>with Contextual, Visual Responses</h4><p>Users can ask casual questions such as &ldquo;Who&rsquo;s going to win today?&rdquo; Vision AI responds with contextual answers based on relevant articles, statistics, and available data.</p></div>
+            <div class="scc-text"><h4>Contextual Q&amp;A</h4><p>Answers live questions (e.g., &ldquo;Who has the momentum today?&rdquo;) with instant, data-backed visual cards.</p></div>
           </article>
           </div>
           <button class="scc-btn next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -459,75 +499,59 @@
         <div class="scc-dots"><span class="on"></span><span></span><span></span></div>
       </div>
 
-      <div class="scc reveal" aria-roledescription="carousel" aria-label="CES Recipe Scenario">
-        <h3 class="scc-title">CES Recipe Scenario</h3>
+      <div class="scc reveal" aria-roledescription="carousel" aria-label="Contextual Recipe and Cross-Device Handoff">
+        <h3 class="scc-title">Contextual Recipe &amp; Cross-Device Handoff</h3>
         <div class="scc-wrap">
           <button class="scc-btn prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="scc-viewport">
-          <article class="scc-card" aria-roledescription="slide" aria-label="1 of 4">
+          <article class="scc-card" aria-roledescription="slide" aria-label="1 of 2">
             <div class="scc-media"><img src="visionai_assets/recipe_row1_food_v2.png" alt="Close-up food photo with recipe request bubble"></div>
-            <div class="scc-text"><h4>Retrieving Information from On-Screen Content</h4><p>When food appears on screen, users can request an analysis of the dish and receive a recipe through natural conversation.</p></div>
+            <div class="scc-text"><h4>On-Screen Food Recognition</h4><p>Recognizes dishes featured in shows and generates tailored recipes through casual conversation.</p></div>
           </article>
-          <article class="scc-card" aria-roledescription="slide" aria-label="2 of 4">
-            <div class="scc-media"><img src="visionai_assets/recipe_row2_screenshot.png" alt="TV screenshot recommending a protein-rich Branzino recipe"></div>
-            <div class="scc-text"><h4>Providing Personalized Recipes</h4><p>Vision AI generates personalized recipes based on previously learned user data, such as dietary preferences, activity patterns, and past interactions.</p></div>
-          </article>
-          <article class="scc-card" aria-roledescription="slide" aria-label="3 of 4">
+          <article class="scc-card" aria-roledescription="slide" aria-label="2 of 2">
             <div class="scc-media"><img src="visionai_assets/recipe_row3_audience.png" alt="Audience watching kitchen display screen presentation"></div>
-            <div class="scc-text"><h4>Sending the Recipe to the Kitchen Screen</h4><p>The recipe can be sent to a nearby kitchen screen, remaining accessible and ready throughout the cooking process.</p></div>
-          </article>
-          <article class="scc-card" aria-roledescription="slide" aria-label="4 of 4">
-            <div class="scc-media"><img src="visionai_assets/recipe_row3_gen.png" alt="TV screenshot generating a personalized recipe based on context"></div>
-            <div class="scc-text"><h4>Making AI Reasoning Visible</h4><p>Through research, I recognized the importance of making AI reasoning visible to users. This led me to explore ways of externalizing the system&rsquo;s reasoning process, allowing users to follow each step of the AI&rsquo;s thinking.</p></div>
+            <div class="scc-text"><h4>Seamless Screen Handoff</h4><p>Pushes the generated recipe directly to connected kitchen displays, letting users cook without losing their place on the main TV.</p></div>
           </article>
           </div>
           <button class="scc-btn next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
-        <div class="scc-dots"><span class="on"></span><span></span><span></span></div>
+        <div class="scc-dots"><span class="on"></span><span></span></div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN FEATURE 1 -->
+  <!-- MAIN FEATURE 01 -->
   <section class="bg-feature section-pad reveal">
     <div class="wrap">
-      <div class="label">MAIN FEATURE 1</div>
-      <h2 class="h2">Conversational AI for Effortless Usage &amp; Feeling of Connection</h2>
+      <div class="label">MAIN FEATURE 01</div>
+      <h2 class="h2">Intent-Driven Conversational Discovery</h2>
+      <p class="body-text feature-intro">Navigating traditional smart TVs requires digging through deep menu trees. With Vision AI, users simply speak to engage with the system without pausing playback or interrupting immersion.</p>
       <div class="feature-visual"><img src="visionai_assets/feature1_big.png" alt="Dark movie-watching screen with chat overlay and remote control"></div>
 
       <div class="ux-row reveal">
-        <h4>Enabling voice-driven use of the TV</h4>
-        <p>Users speak to invoke AI Home, and the system interprets the current scene, and relevant information is returned without pausing playback or forcing navigation through layered menus. Users change audio or subtitles, adjust picture modes, move between rows, open apps, and resume positions with a single utterance.</p>
+        <h4>Zero-Interruption Voice Controls</h4>
+        <p>Users adjust subtitles, switch picture modes, or launch apps with natural phrases like &ldquo;make the voices clearer&rdquo;&mdash;instantly executed without taking over the full screen.</p>
       </div>
       <div class="ux-row reveal">
-        <h4>Hands-free and context-aware discovery</h4>
-        <p>Requests such as &ldquo;something light and funny tonight,&rdquo; &ldquo;who is this actor,&rdquo; or &ldquo;show related clips&rdquo; surface concise cards tied to what is on screen.</p>
+        <h4>Contextual Discovery</h4>
+        <p>Casual intents such as &ldquo;something fun and light tonight&rdquo; or &ldquo;who is that actor?&rdquo; return concise, glanceable visual cards directly linked to what is currently playing.</p>
       </div>
 
       <div class="feature-visual feature-pair" style="margin-top:32px;">
         <img src="visionai_assets/feature1_tv_stats.png" alt="TV showing all-time head-to-head stats between Helena and Veluna with related content cards" style="flex:860 1 0;">
         <img src="visionai_assets/feature1_related.png" alt="Related content row featuring the Helena mascot with suggested follow-up prompts" style="flex:866 1 0;">
       </div>
-
-      <div class="reflection reveal">
-        <div class="r-label">Reflection</div>
-        <div class="r-title">From Control to Intentional Response</div>
-        <p>Designing conversational interaction for a large screen showed me that ease of use alone does not lead to meaningful engagement. Although voice commands made navigation faster, user trust depended more on whether the system felt intentional in its responses, rather than simply executing commands.</p>
-        <p>Through user testing, I found that users felt more connected when the AI explained why certain content or actions were suggested, instead of presenting results without context. This led me to see conversational AI not just as a tool for efficiency, but as something that shapes how people attend to, interpret, and choose within everyday situations.</p>
-        <p>These observations pushed me to consider how designers might move beyond optimizing control, toward creating AI systems that support reflection and agency without encouraging passive dependence.</p>
-      </div>
     </div>
   </section>
 
-  <!-- MAIN FEATURE 2 (Vision AI home) -->
+  <!-- MAIN FEATURE 02 -->
   <section class="bg-feature section-pad reveal" style="padding-top:56px;">
     <div class="wrap">
-      <div class="label">MAIN FEATURE 2</div>
-      <h2 class="h2">Vision AI home: The Easiest Content Searching</h2>
+      <div class="label">MAIN FEATURE 02</div>
+      <h2 class="h2">Vision AI Home: In-Context Multitasking</h2>
+      <p class="body-text feature-intro">Conventional TV interfaces force users to choose between watching content or searching menus. Vision AI Home introduces a lightweight, responsive overlay triggered by a single remote click.</p>
 
       <div class="scenario-card reveal">
-        <span class="sc-label">Scenario</span>
-        <span class="sc-inline">&nbsp; Press the AI button on the remote or the mobile remote to launch.</span>
         <div class="sc-row">
           <div class="sc-remote-phone">
             <img class="remote" src="visionai_assets/feature2_remote.png" alt="Hand holding a remote control">
@@ -539,47 +563,37 @@
       </div>
 
       <div class="ux-row reveal">
-        <h4>Multitasking Without Breaking the Viewing Flow</h4>
-        <p>Users can explore context-aware information while keeping the program on screen. Beyond characters and plot, on-screen details&mdash;such as clothing brands and the music that&rsquo;s playing&mdash;surface instantly at the press of a single button, with no tedious searching required.</p>
+        <h4>Non-Disruptive Visual Overlay</h4>
+        <p>Viewers can discover music tracks, identify fashion items, or look up cast members without exiting the active video stream.</p>
       </div>
       <div class="ux-row reveal">
-        <h4>Responsive by Design</h4>
-        <p>In this always-alive AI Home, users experience an interface that feels responsive, adaptive, and continuously engaging. To prevent cognitive overload and support sustained attention, the number of cards shown at any given time is intentionally limited. This decision was informed by insights derived from A/B testing.</p>
-      </div>
-
-      <div class="reflection reveal">
-        <div class="r-label">Reflection</div>
-        <div class="r-title">Design Principle (Lowering the Barrier of AI)</div>
-        <p>We define users who struggle with AI features as a primary accessibility audience. Where traditional accessibility stops at &ldquo;usable,&rdquo; Vision AI Companion (VAC) leverages the large screen with visually rich, card-based presentation to lower cognitive and motor load. By making key options visible and confirmable at a glance, the experience reduces dependence on prompt-writing skill and meaningfully lowers the threshold for AI exploration.</p>
-        <p>We believe advanced AI should be equitable, not exclusive. This interaction model is the starting point for universal AI interactions on Samsung TV, raising the standard for open, sustainable AI experiences that welcome everyone.</p>
+        <h4>Optimized Cognitive Load (A/B Tested)</h4>
+        <p>Rather than overwhelming the screen with endless tiles, we conducted A/B testing to limit the interface to high-confidence, contextually relevant cards&mdash;maximizing discovery while minimizing decision fatigue.</p>
       </div>
     </div>
   </section>
 
-  <!-- MAIN FEATURE 2 (Screen Enhancing Home Environment) -->
+  <!-- MAIN FEATURE 03 -->
   <section class="bg-feature section-pad reveal" style="padding-top:56px;">
     <div class="wrap">
-      <div class="label">MAIN FEATURE 3</div>
-      <h2 class="h2">Screen Enhancing Home Environment</h2>
+      <div class="label">MAIN FEATURE 03</div>
+      <h2 class="h2">Ambient Generative Canvas</h2>
+      <p class="body-text feature-intro">Most TVs spend 80% of their day as a lifeless black rectangle in the center of the living room. Vision AI redefines the idle screen into a dynamic, sensing canvas that adapts to the mood of the home.</p>
 
       <div class="scenario-card reveal">
-        <span class="sc-label">Scenario</span>
-        <div class="sc-two" style="margin-top:16px;">
-          <div class="col">
-            <img src="visionai_assets/feature2b_tv1.png" alt="TV showing mood keyword selection - Unlock your imagination">
-            <p>When users select keywords, the system generates music and visuals that align with the chosen atmosphere.</p>
-          </div>
-          <div class="col">
-            <img src="visionai_assets/feature2b_tv2.png" alt="TV showing generated visual thumbnail options - What appeals to you">
-            <p>Based on the generated visuals, users can adjust music and imagery through natural conversation.</p>
-          </div>
+        <div class="sc-two">
+          <div class="col"><img src="visionai_assets/feature2b_tv1.png" alt="TV showing mood keyword selection - Unlock your imagination"></div>
+          <div class="col"><img src="visionai_assets/feature2b_tv2.png" alt="TV showing generated visual thumbnail options - What appeals to you"></div>
         </div>
       </div>
 
-      <div class="reflection reveal" style="margin-top:16px;">
-        <div class="r-label">Reflection</div>
-        <div class="r-title">From Blank Panel to Sensing Canvas</div>
-        <p>Designing the TV as an ambient presence made me reconsider what a screen represents when it is no longer actively used. Rather than treating the idle screen as empty, I explored how it could participate in shaping the atmosphere and emotional tone of the home. This shifted my focus from content delivery to how visual systems quietly coexist with everyday life.</p>
+      <div class="ux-row reveal">
+        <h4>Prompt-Free Mood Generation</h4>
+        <p>Users simply pick an intuitive atmosphere keyword, and the system generates responsive visuals and background audio tailored to the living space.</p>
+      </div>
+      <div class="ux-row reveal">
+        <h4>Conversational Atmosphere Tuning</h4>
+        <p>Through casual voice prompts, viewers can refine lighting, tempo, or visual themes, turning the screen from a static appliance into an ambient companion.</p>
       </div>
 
       <div class="final-row">
@@ -587,6 +601,53 @@
         <div class="arrow">&#8594;</div>
         <img src="visionai_assets/final_planets_v2.png" alt="TV displaying colorful planets artwork" style="flex:1.553 1 0;">
         <img src="visionai_assets/final_people.png" alt="People relaxing in a living room with TV art visible" style="flex:1.078 1 0;">
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PRINCIPLES & REFLECTIONS -->
+  <section class="bg-feature section-pad principles">
+    <div class="wrap">
+      <div class="label">DESIGN PRINCIPLES &amp; REFLECTIONS</div>
+
+      <div class="principle reveal">
+        <h3 class="p-title">01. Making AI Reasoning Visible &amp; Trustworthy</h3>
+        <p class="body-text">Designing conversational AI for the living room taught me that pure speed doesn&rsquo;t equal user trust. When AI presents answers out of nowhere, users often feel alienated or skeptical.</p>
+        <div class="ux-row">
+          <h4>Externalizing the &ldquo;Why&rdquo;</h4>
+          <p>During testing, engagement increased significantly when the system briefly showed why it recommended a title or recipe rather than simply serving the output.</p>
+        </div>
+        <div class="ux-row">
+          <h4>Step-by-Step Transparency</h4>
+          <p>We designed progressive disclosure cues so viewers can follow the AI&rsquo;s reasoning steps, transforming the interaction from a mysterious black box into an accountable conversation.</p>
+        </div>
+        <div class="feature-visual principle-img"><img src="visionai_assets/recipe_row3_gen.png" alt="TV screen showing the AI's reasoning steps while generating a personalized recipe"></div>
+      </div>
+
+      <div class="principle reveal">
+        <h3 class="p-title">02. Radical Accessibility: Lowering the Prompting Barrier</h3>
+        <p class="body-text">Advanced AI shouldn&rsquo;t require prompt engineering skills. Many living room users&mdash;especially older adults or casual viewers&mdash;struggle to formulate precise natural language queries.</p>
+        <div class="ux-row">
+          <h4>From Prompting to Recognition</h4>
+          <p>Where conventional AI demands articulate prompts, Vision AI utilizes glanceable, card-based visual affordances.</p>
+        </div>
+        <div class="ux-row">
+          <h4>Inclusive by Default</h4>
+          <p>By putting clear, tappable options right on the screen, we drastically reduced both motor and cognitive load, establishing a truly universal interaction model for every family member.</p>
+        </div>
+      </div>
+
+      <div class="principle reveal">
+        <h3 class="p-title">03. Preserving Agency: From Control to Intentional Dialogue</h3>
+        <p class="body-text">The ultimate trap in AI UX is creating passive dependence. If the system automates everything, the user loses their sense of choice.</p>
+        <div class="ux-row">
+          <h4>Fostering Intentional Choice</h4>
+          <p>We shifted the role of TV AI from a command executor to a conversational partner that stimulates curiosity without taking over.</p>
+        </div>
+        <div class="ux-row">
+          <h4>Quiet Coexistence</h4>
+          <p>By blending context-aware suggestions with serene ambient visuals during idle states, the screen respects the physical living space, remaining ready to assist without demanding continuous attention.</p>
+        </div>
       </div>
     </div>
   </section>

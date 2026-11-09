@@ -1,0 +1,114 @@
+Samsung Vision AI — page text
+
+Hero
+
+Label: AI SCREEN EXPERIENCE · 2026
+
+Title: Samsung Vision AI
+
+Subtitle: How can AI reshape everyday attention, choice, and agency when embedded into a familiar domestic object like a TV?
+
+Confidential note: Some details of this project are confidential. This case study shares publicly available information and what I learned along the way. If you'd like to chat about my experience, feel free to email me! 😊
+
+MY ROLE
+UX Designer & Interaction Designer
+
+THE TEAM
+The project was developed by a cross-functional team including UX and visual designers, AI researchers, software engineers, and product managers.
+
+AWARDS
+The Edison Awards 2025
+IF Awards Finalist 2026
+
+BACKGROUND
+
+There is more content than ever, yet watching has become increasingly fragmented.
+
+Higher barriers
+As TV systems grow more complex, everyday viewing increasingly assumes technical confidence. For many users, especially older adults or those unfamiliar with AI features, interaction itself becomes a barrier rather than an entry point.
+
+Overwhelming Choices
+With countless OTT apps, channels, and services available, the act of choosing has become a task in itself. Users often spend more time navigating options than engaging with what they came to watch.
+
+Fragmented Experience
+As interfaces prioritize browsing and control, watching increasingly shifts away from immersion. The experience becomes fragmented, shaped by constant searching, switching, and decision-making.
+
+MAIN SCENARIOS
+
+Key Scenarios at CES 2026
+
+I structured key scenarios showcased during the CES 2026 VP keynote.
+
+CES Sports Scenario
+
+Identifying the Type of Content Being Watched
+By detecting on-screen elements, Vision AI recognizes sports content in real time. This context awareness enables timely and relevant information during live viewing.
+
+Personalizing the Viewing Experience Through Voice-Based Audio Control
+Based on research showing that users often feel frustrated by unwanted sounds during sports broadcasts, Vision AI allows users to control audio easily through voice commands.
+
+Answering Casual Questions with Contextual, Visual Responses
+Users can ask casual questions such as "Who's going to win today?" Vision AI responds with contextual answers based on relevant articles, statistics, and available data.
+
+CES Recipe Scenario
+
+Retrieving Information from On-Screen Content
+When food appears on screen, users can request an analysis of the dish and receive a recipe through natural conversation.
+
+Providing Personalized Recipes
+Vision AI generates personalized recipes based on previously learned user data, such as dietary preferences, activity patterns, and past interactions.
+
+Sending the Recipe to the Kitchen Screen
+The recipe can be sent to a nearby kitchen screen, remaining accessible and ready throughout the cooking process.
+
+Making AI Reasoning Visible
+Through research, I recognized the importance of making AI reasoning visible to users. This led me to explore ways of externalizing the system's reasoning process, allowing users to follow each step of the AI's thinking.
+
+MAIN FEATURE 1
+
+Conversational AI for Effortless Usage & Feeling of Connection
+
+Enabling voice-driven use of the TV
+Users speak to invoke AI Home, and the system interprets the current scene, and relevant information is returned without pausing playback or forcing navigation through layered menus. Users change audio or subtitles, adjust picture modes, move between rows, open apps, and resume positions with a single utterance.
+
+Hands-free and context-aware discovery
+Requests such as "something light and funny tonight," "who is this actor," or "show related clips" surface concise cards tied to what is on screen.
+
+Reflection — From Control to Intentional Response
+
+Designing conversational interaction for a large screen showed me that ease of use alone does not lead to meaningful engagement. Although voice commands made navigation faster, user trust depended more on whether the system felt intentional in its responses, rather than simply executing commands.
+
+Through user testing, I found that users felt more connected when the AI explained why certain content or actions were suggested, instead of presenting results without context. This led me to see conversational AI not just as a tool for efficiency, but as something that shapes how people attend to, interpret, and choose within everyday situations.
+
+These observations pushed me to consider how designers might move beyond optimizing control, toward creating AI systems that support reflection and agency without encouraging passive dependence.
+
+MAIN FEATURE 2
+
+Vision AI home: The Easiest Content Searching
+
+SCENARIO: Press the AI button on the remote or the mobile remote to launch.
+
+Multitasking Without Breaking the Viewing Flow
+Users can explore context-aware information while keeping the program on screen. Beyond characters and plot, on-screen details—such as clothing brands and the music that's playing—surface instantly at the press of a single button, with no tedious searching required.
+
+Responsive by Design
+In this always-alive AI Home, users experience an interface that feels responsive, adaptive, and continuously engaging. To prevent cognitive overload and support sustained attention, the number of cards shown at any given time is intentionally limited. This decision was informed by insights derived from A/B testing.
+
+Reflection — Design Principle (Lowering the Barrier of AI)
+
+We define users who struggle with AI features as a primary accessibility audience. Where traditional accessibility stops at "usable," Vision AI Companion (VAC) leverages the large screen with visually rich, card-based presentation to lower cognitive and motor load. By making key options visible and confirmable at a glance, the experience reduces dependence on prompt-writing skill and meaningfully lowers the threshold for AI exploration.
+
+We believe advanced AI should be equitable, not exclusive. This interaction model is the starting point for universal AI interactions on Samsung TV, raising the standard for open, sustainable AI experiences that welcome everyone.
+
+MAIN FEATURE 3
+
+Screen Enhancing Home Environment
+
+SCENARIO
+
+When users select keywords, the system generates music and visuals that align with the chosen atmosphere.
+Based on the generated visuals, users can adjust music and imagery through natural conversation.
+
+Reflection — From Blank Panel to Sensing Canvas
+
+Designing the TV as an ambient presence made me reconsider what a screen represents when it is no longer actively used. Rather than treating the idle screen as empty, I explored how it could participate in shaping the atmosphere and emotional tone of the home. This shifted my focus from content delivery to how visual systems quietly coexist with everyday life.
