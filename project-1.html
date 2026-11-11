@@ -424,6 +424,9 @@
   .why-tv .label{margin-bottom:12px !important;}
   .why-lead{font-size:23px;font-weight:400;line-height:1.35;letter-spacing:-1px;color:var(--white);margin:0 0 12px;}
   @media(max-width:768px){.why-lead{font-size:18px}}
+  /* remove lines that don't separate anything */
+  .bg-feature{border-top:none !important;}
+  :not(.ux-row) + .ux-row{border-top:none !important;}
 </style>
 </head>
 <body>
@@ -587,17 +590,6 @@
       <div class="img-pair">
         <img src="visionai_assets/home_remote_room.jpg" alt="Vision AI Home on a TV in a purple-lit living room, opened with the AI button on the remote" style="flex:1.778 1 0;">
         <img src="visionai_assets/home_remote_portrait.jpg" alt="Woman pressing the AI button on the remote to open Vision AI Home" style="flex:0.75 1 0;">
-      </div>
-
-      <div class="scenario-card reveal">
-        <div class="sc-row">
-          <div class="sc-remote-phone">
-            <img class="remote" src="visionai_assets/feature2_remote.png" alt="Hand holding a remote control">
-            <img class="phone" src="visionai_assets/feature2_phone.png" alt="Mobile remote control app">
-          </div>
-          <div class="arrow">&#8594;</div>
-          <img class="contentgrid" src="visionai_assets/feature2_contentgrid.png" alt="TV content grid with related content cards">
-        </div>
       </div>
 
       <div class="ux-row reveal">
