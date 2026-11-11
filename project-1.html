@@ -393,7 +393,7 @@
   .vhero-tag{display:block;font-size:9.92px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.75);margin-bottom:16px;}
   h1.h1.vhero-title{margin:0 0 28px !important;line-height:1.25 !important;}
   .vhero .confidential-note{margin:0 0 40px;}
-  .vhero-meta{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:40px;max-width:880px;}
+  .vhero-meta{display:grid;grid-template-columns:0.9fr 1.3fr 1fr 1fr;gap:32px;max-width:880px;}
   .vmeta-label{display:block;font-size:9.28px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.38);margin-bottom:11px;}
   .vmeta-value{display:block;font-size:12.48px;font-weight:300;line-height:1.6;color:rgba(232,228,220,.7);max-width:240px;}
   .vmeta-value a.award-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
@@ -414,6 +414,12 @@
   .principle-pair{margin:24px 0 0;}
   @media(max-width:768px){.img-pair{flex-direction:column;}}
   .feature-video.movie{aspect-ratio:1200/636;}
+  .principles-intro{max-width:720px;margin:-4px 0 40px !important;}
+  .media-link{display:block;max-width:640px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;text-decoration:none;transition:border-color .2s;}
+  .media-link:hover{border-color:rgba(255,255,255,.35);}
+  .media-src{display:block;font-size:10.4px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.45);margin-bottom:10px;}
+  .media-title{display:block;font-size:17px;font-weight:400;line-height:1.4;color:var(--white);margin-bottom:12px;}
+  .media-cta{font-size:13px;color:rgba(232,228,220,.7);}
 </style>
 </head>
 <body>
@@ -438,6 +444,7 @@
       <div class="vhero-meta">
         <div class="meta-col"><span class="vmeta-label">My Role</span><span class="vmeta-value">UX Designer<br>&amp; Interaction Designer</span></div>
         <div class="meta-col"><span class="vmeta-label">The Team</span><span class="vmeta-value">The project was developed by a cross-functional team including UX and visual designers, AI researchers, software engineers, and product managers.</span></div>
+        <div class="meta-col"><span class="vmeta-label">Launch</span><span class="vmeta-value">Launched in 38 countries, since expanded worldwide across Samsung TV models</span></div>
         <div class="meta-col"><span class="vmeta-label">Awards</span><span class="vmeta-value">The Edison Awards 2025<br><a class="award-link" href="https://ifdesign.com/en/winner-ranking/project/samsung-vision-ai-tv/758333" target="_blank" rel="noopener">IF Awards Finalist 2026</a></span></div>
       </div>
     </div>
@@ -452,6 +459,7 @@
       <div class="intro-text">
         <p class="body-text">With dozens of OTT apps and endless streaming catalogs, TVs have become increasingly complicated to navigate. What used to be a relaxing living room habit has turned into an endless cycle of searching, switching, and decision fatigue.</p>
         <p class="body-text">Research in the UK revealed that viewers spend over 100 hours a year just deciding what to watch&mdash;turning leisure into a frustrating chore.</p>
+        <p class="body-text">A TV is not a phone or a PC. It is watched from across the room, shared by the household, and centered on what is already playing. When a question comes up mid-scene&mdash;where was this filmed, who directed it&mdash;viewers reach for their phones and step out of the story. Simply bringing existing AI services to the big screen would not be enough; AI on TV has to stay connected to what is on screen.</p>
         <p class="body-text">In designing Vision AI, we tackled three core challenges:</p>
       </div>
       <div class="stat-grid">
@@ -551,7 +559,7 @@
       </div>
       <div class="ux-row reveal">
         <h4>Contextual Discovery</h4>
-        <p>Casual intents such as &ldquo;something fun and light tonight&rdquo; or &ldquo;who is that actor?&rdquo; return concise, glanceable visual cards directly linked to what is currently playing.</p>
+        <p>Casual intents such as &ldquo;something fun and light tonight&rdquo; or &ldquo;who is that actor?&rdquo; return concise, glanceable visual cards directly linked to what is currently playing. Conversations don&rsquo;t end with a single answer: each response links to related videos that can be played right away, turning discovery directly into viewing.</p>
       </div>
       <div class="feature-visual" style="margin-top:28px;"><video class="feature-video movie" autoplay muted loop playsinline preload="metadata" poster="visionai_assets/feature1_movie_poster.jpg" aria-label="Viewer asks for a movie to watch tonight and Vision AI answers with recommendations and related content cards"><source src="visionai_assets/feature1_movie.webm" type="video/webm"><source src="visionai_assets/feature1_movie.mp4" type="video/mp4"></video></div>
 
@@ -567,7 +575,7 @@
     <div class="wrap">
       <div class="label">MAIN FEATURE 02</div>
       <h2 class="h2">Vision AI Home: In-Context Multitasking</h2>
-      <p class="body-text feature-intro">Conventional TV interfaces force users to choose between watching content or searching menus. Vision AI Home introduces a lightweight, responsive overlay triggered by a single remote click.</p>
+      <p class="body-text feature-intro">Conventional TV interfaces force users to choose between watching content or searching menus. Vision AI Home introduces a lightweight, responsive overlay triggered by a single remote click. Designed as a zero-depth UI, topic-based conversations live directly on the home screen, so users never have to move between screens.</p>
       <div class="img-pair">
         <img src="visionai_assets/home_remote_room.jpg" alt="Vision AI Home on a TV in a purple-lit living room, opened with the AI button on the remote" style="flex:1.778 1 0;">
         <img src="visionai_assets/home_remote_portrait.jpg" alt="Woman pressing the AI button on the remote to open Vision AI Home" style="flex:0.75 1 0;">
@@ -591,6 +599,10 @@
       <div class="ux-row reveal">
         <h4>Optimized Cognitive Load (A/B Tested)</h4>
         <p>Rather than overwhelming the screen with endless tiles, we conducted A/B testing to limit the interface to high-confidence, contextually relevant cards&mdash;maximizing discovery while minimizing decision fatigue.</p>
+      </div>
+      <div class="ux-row reveal">
+        <h4>Proactive Today&rsquo;s Topic</h4>
+        <p>Instead of waiting for a search, AI summarizes top news, lifestyle updates, and sports highlights in advance and recommends related videos&mdash;surfacing what viewers may care about before they ask.</p>
       </div>
     </div>
   </section>
@@ -631,6 +643,7 @@
   <section class="bg-feature section-pad principles">
     <div class="wrap">
       <div class="label">DESIGN PRINCIPLES &amp; REFLECTIONS</div>
+      <p class="body-text principles-intro">There was no established playbook for AI on TV, so we had to define our own principles. Three guided our decisions.</p>
 
       <div class="principle reveal">
         <h3 class="p-title">01. Making AI Reasoning Visible &amp; Trustworthy</h3>
@@ -642,6 +655,10 @@
         <div class="ux-row">
           <h4>Step-by-Step Transparency</h4>
           <p>We designed progressive disclosure cues so viewers can follow the AI&rsquo;s reasoning steps, transforming the interaction from a mysterious black box into an accountable conversation.</p>
+        </div>
+        <div class="ux-row">
+          <h4>Trust Over Speed</h4>
+          <p>In a fast-moving AI market, building user trust mattered more than shipping first. Safeguards around copyright, privacy, and data use were set as top priorities, with every feature reviewed alongside legal from the earliest stages.</p>
         </div>
         <div class="img-pair principle-pair">
           <img src="visionai_assets/principle_gallery_answer.jpg" alt="Vision AI answering a request for Berlin galleries and explaining why it recommends LUMAS works" style="flex:1.778 1 0;">
@@ -675,6 +692,18 @@
           <p>By blending context-aware suggestions with serene ambient visuals during idle states, the screen respects the physical living space, remaining ready to assist without demanding continuous attention.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="bg-feature section-pad media">
+    <div class="wrap">
+      <div class="label">VISION AI ON MEDIA</div>
+      <a class="media-link" href="https://news.samsung.com/global/interview-the-future-of-screen-experiences-%E2%91%A1-from-watching-to-understanding-with-vision-ai-companion" target="_blank" rel="noopener">
+        <span class="media-src">Samsung Global Newsroom &middot; June 2026</span>
+        <span class="media-title">[Interview] The Future of Screen Experiences &#9313;: From Watching to Understanding With Vision AI Companion</span>
+        <span class="media-cta">Read the interview &rarr;</span>
+      </a>
     </div>
   </section>
 
