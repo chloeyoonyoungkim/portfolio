@@ -115,6 +115,29 @@
   .top-hero{--hw:min(100%, calc((100vh - 261px) * 1.7778));aspect-ratio:auto !important;max-height:none !important;height:auto;background:linear-gradient(90deg,#dcdcdc 0%,#dcdcdc calc(50% - var(--hw)/2),#b5b5b3 calc(50% + var(--hw)/2),#b5b5b3 100%) !important;}
   .top-hero img{display:block;width:var(--hw) !important;height:auto !important;aspect-ratio:16/9;margin:0 auto;}
   @media(max-width:860px){.top-hero{--hw:100%;}}
+  /* ===== type system matched to Vision AI (2026-11-11) ===== */
+  h1{font-size:37.4px !important;font-weight:400 !important;letter-spacing:-1px !important;}
+  h2{font-size:31.2px !important;font-weight:400 !important;letter-spacing:-1px !important;}
+  .lead{font-size:22px !important;font-weight:400 !important;letter-spacing:-1px !important;}
+  p,.points span{font-size:13px !important;font-weight:400 !important;letter-spacing:-0.2px !important;}
+  .points b,.card h4,.media-title{font-size:13px !important;font-weight:500 !important;letter-spacing:-0.2px !important;}
+  .card p{font-size:13px !important;font-weight:400 !important;letter-spacing:-0.2px !important;}
+  .note,.meta p{font-size:12.5px !important;font-weight:300 !important;letter-spacing:-0.1px !important;}
+  .label,.meta .label,.media-src{font-size:10.4px !important;font-weight:500 !important;letter-spacing:.14em !important;text-transform:uppercase;}
+  footer .col,footer a,.back-bar a{font-size:13px !important;font-weight:500 !important;letter-spacing:.08em !important;}
+  /* media cards (same as Vision AI) */
+  .media-link{display:block;max-width:640px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:rgba(255,255,255,.35);transition:border-color .2s;}
+  .media-link:hover{border-color:#9aa3aa;}
+  .media-link + .media-link{margin-top:12px;}
+  .media-src{display:block;color:var(--muted);margin-bottom:10px;}
+  .media-title{display:block;color:var(--fg);line-height:1.4;margin-bottom:12px;}
+  .media-cta{font-size:13px;letter-spacing:-0.2px;color:var(--body);}
+  .media .media-grid{margin-top:28px;}
+  .meta a.award-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
+  .media-cta{font-weight:400 !important;}
+  .learn h2{font-size:22px !important;line-height:1.3 !important;}
+  @media(max-width:860px){.learn h2{font-size:18px !important}}
+  @media(max-width:860px){h1{font-size:28px !important}h2{font-size:23px !important}.lead{font-size:18px !important}}
 </style>
 </head>
 <body>
@@ -132,7 +155,7 @@
     <div class="meta">
       <div><span class="label">My Role</span><p>UX and Interaction Design</p></div>
       <div><span class="label">The Team</span><p>Software and hardware engineers,<br>AI engineers, UX designers</p></div>
-      <div><span class="label">Recognition</span><p>iF Design Award &mdash; Gold 2025</p></div>
+      <div><span class="label">Recognition</span><p><a class="award-link" href="https://ifdesign.com/en/winner-ranking/project/ballie/699101" target="_blank" rel="noopener">iF Design Award &mdash; Gold 2025</a></p></div>
     </div>
   </div>
 </section>
@@ -279,9 +302,24 @@
 </section>
 
 <!-- MEDIA -->
-<section class="sec alt">
+<section class="sec alt media">
   <div class="col reveal">
-    <h2>Ballie on Media!</h2>
+    <span class="label">Ballie on Media</span>
+    <a class="media-link" href="https://ifdesign.com/en/winner-ranking/project/ballie/699101" target="_blank" rel="noopener">
+      <span class="media-src">iF Design Award &middot; 2025</span>
+      <span class="media-title">Ballie &mdash; iF Design Award Gold 2025</span>
+      <span class="media-cta">View the project &rarr;</span>
+    </a>
+    <a class="media-link" href="https://news.samsung.com/global/samsung-and-google-cloud-expand-partnership-bring-gemini-to-ballie-a-home-ai-companion-robot" target="_blank" rel="noopener">
+      <span class="media-src">Samsung Global Newsroom &middot; April 2025</span>
+      <span class="media-title">Samsung and Google Cloud Expand Partnership, Bring Gemini to Ballie, a Home AI Companion Robot by Samsung</span>
+      <span class="media-cta">Read the article &rarr;</span>
+    </a>
+    <a class="media-link" href="https://news.samsung.com/global/video-ces-2024-a-day-in-the-life-with-ballie-an-ai-companion-robot-for-the-home" target="_blank" rel="noopener">
+      <span class="media-src">Samsung Global Newsroom &middot; CES 2024</span>
+      <span class="media-title">[Video] A Day in the Life With Ballie: An AI Companion Robot for the Home</span>
+      <span class="media-cta">Watch the video &rarr;</span>
+    </a>
     <div class="media-grid">
       <img src="ballie_assets/m_ces.jpg" alt="Ballie unveiled on stage at Samsung&rsquo;s CES keynote">
       <img class="article" src="ballie_assets/media_article.jpg" alt="Article: A Design That&rsquo;s Playful Yet Functional">
