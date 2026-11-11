@@ -316,6 +316,14 @@
   .final-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
   .final-right-mid .final-img{height:auto;aspect-ratio:500/369;}
   @media(max-width:860px){.sysover-grid{grid-template-columns:1fr;}}
+  /* first screen like Vision AI (2026-11-10) */
+  .back-bar{position:absolute !important;top:0;left:0;right:auto;background:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border:0 !important;padding:26px 32px !important;z-index:10;width:auto !important;}
+  .back-bar .wrap,.back-bar .in{display:block;width:auto;max-width:none;padding:0 !important;margin:0;}
+  .back-bar span{display:none;}
+  .back-bar a{font-size:13px !important;font-weight:500 !important;letter-spacing:.06em !important;text-transform:uppercase;opacity:.65;text-decoration:none;}
+  @media(max-width:860px){.back-bar{position:relative !important;padding:18px 24px !important;}}
+  .hero-image{max-width:min(1110px, calc((100vh - 294px) * 1.793), calc(100% - 48px)) !important;}
+  @media(max-width:860px){.hero-image{max-width:100% !important;}}
 </style>
 </head>
 <body>
