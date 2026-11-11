@@ -427,6 +427,10 @@
   /* remove lines that don't separate anything */
   .bg-feature{border-top:none !important;}
   :not(.ux-row) + .ux-row{border-top:none !important;}
+  /* design challenge band: soft gradient from hero image palette */
+  .challenge-band{position:relative;overflow:hidden;}
+  .challenge-band::before{content:"";position:absolute;inset:-40%;background:radial-gradient(ellipse at 22% 70%,#7a5cf0 0%,transparent 55%),radial-gradient(ellipse at 82% 30%,#4f5fe0 0%,transparent 55%),radial-gradient(ellipse at 55% 110%,#b48ae8 0%,transparent 45%);opacity:.22;filter:blur(50px) saturate(1.2);pointer-events:none;}
+  .challenge-band .wrap{position:relative;z-index:1;}
 </style>
 </head>
 <body>
