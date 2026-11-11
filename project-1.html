@@ -386,7 +386,8 @@
   /* ===== hero = ALLO layout + gradient (2026-11-08) ===== */
   .vhero{position:relative;overflow:hidden;background:#141414;padding:0 0 80px;}
   .vhero-bg{position:absolute;left:0;right:0;bottom:0;height:70%;background:radial-gradient(ellipse at 85% 30%,#ec4899 0%,transparent 55%),radial-gradient(ellipse at 15% 80%,#7c3aed 0%,transparent 60%);opacity:.22;filter:blur(50px) saturate(1.3);pointer-events:none;}
-  .vhero-image{position:relative;z-index:2;max-width:1110px;margin:0 auto;border-radius:0 0 4px 4px;overflow:hidden;}
+  .vhero-image{position:relative;z-index:2;max-width:min(1110px, calc((100vh - 430px) * 1.793), calc(100% - 48px));margin:0 auto;border-radius:0 0 4px 4px;overflow:hidden;}
+  @media(max-width:860px){.vhero-image{max-width:100%;}}
   .vhero-image img{width:100%;height:auto;aspect-ratio:1110/619;object-fit:cover;object-position:center;display:block;}
   .vhero-content{position:relative;z-index:2;max-width:864px;margin:0 auto;padding:51px 0 0;}
   .vhero-tag{display:block;font-size:9.92px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,220,.75);margin-bottom:16px;}
@@ -397,6 +398,7 @@
   .vmeta-value{display:block;font-size:12.48px;font-weight:300;line-height:1.6;color:rgba(232,228,220,.7);max-width:240px;}
   .vmeta-value a.award-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
   @media(max-width:860px){.vhero-content{padding:38px 24px 0}.vhero-meta{grid-template-columns:1fr;gap:22px}.vmeta-value{max-width:none}}
+  .ux-row{padding:18px 0 !important;}
 </style>
 </head>
 <body>
