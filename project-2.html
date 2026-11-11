@@ -106,6 +106,15 @@
     .row img{width:100% !important;height:auto;aspect-ratio:4/3}
     .sec{padding:56px 0}
   }
+  /* first screen like Vision AI (2026-11-10) */
+  .back-bar{position:absolute !important;top:0;left:0;right:auto;background:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border:0 !important;padding:26px 32px !important;z-index:10;width:auto !important;}
+  .back-bar .wrap,.back-bar .in{display:block;width:auto;max-width:none;padding:0 !important;margin:0;}
+  .back-bar span{display:none;}
+  .back-bar a{font-size:13px !important;font-weight:500 !important;letter-spacing:.06em !important;text-transform:uppercase;opacity:.65;text-decoration:none;}
+  @media(max-width:860px){.back-bar{position:relative !important;padding:18px 24px !important;}}
+  .top-hero{--hw:min(100%, calc((100vh - 261px) * 1.7778));aspect-ratio:auto !important;max-height:none !important;height:auto;background:linear-gradient(90deg,#dcdcdc 0%,#dcdcdc calc(50% - var(--hw)/2),#b5b5b3 calc(50% + var(--hw)/2),#b5b5b3 100%) !important;}
+  .top-hero img{display:block;width:var(--hw) !important;height:auto !important;aspect-ratio:16/9;margin:0 auto;}
+  @media(max-width:860px){.top-hero{--hw:100%;}}
 </style>
 </head>
 <body>
