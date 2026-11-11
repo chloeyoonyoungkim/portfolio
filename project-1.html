@@ -431,6 +431,10 @@
   .challenge-band{position:relative;overflow:hidden;}
   .challenge-band::before{content:"";position:absolute;inset:-40%;background:radial-gradient(ellipse at 22% 70%,#7a5cf0 0%,transparent 55%),radial-gradient(ellipse at 82% 30%,#4f5fe0 0%,transparent 55%),radial-gradient(ellipse at 55% 110%,#b48ae8 0%,transparent 45%);opacity:.22;filter:blur(50px) saturate(1.2);pointer-events:none;}
   .challenge-band .wrap{position:relative;z-index:1;}
+  .feature-video.aibtn{aspect-ratio:2/1;}
+  .feature-video.football{aspect-ratio:1920/680;}
+  .sports-video{margin:8px 0 40px;}
+  .media-link + .media-link{margin-top:12px;}
 </style>
 </head>
 <body>
@@ -516,6 +520,7 @@
         <img class="photo" src="visionai_assets/mainscen_presenter.png" alt="Presenter on stage at CES 2026 keynote">
       </div>
 
+      <div class="feature-visual sports-video"><video class="feature-video football" autoplay muted loop playsinline preload="metadata" poster="visionai_assets/sports_football_poster.jpg" aria-label="Vision AI recognizes a live football match and switches to AI Football Mode Pro automatically"><source src="visionai_assets/sports_football.webm" type="video/webm"><source src="visionai_assets/sports_football.mp4" type="video/mp4"></video></div>
       <div class="scc reveal" aria-roledescription="carousel" aria-label="Live Sports Scenario">
         <h3 class="scc-title">Live Sports Scenario</h3>
         <div class="scc-wrap">
@@ -591,10 +596,7 @@
       <div class="label">MAIN FEATURE 02</div>
       <h2 class="h2">Vision AI Home: In-Context Multitasking</h2>
       <p class="body-text feature-intro">Conventional TV interfaces force users to choose between watching content or searching menus. Vision AI Home introduces a lightweight, responsive overlay triggered by a single remote click. Designed as a zero-depth UI, topic-based conversations live directly on the home screen, so users never have to move between screens.</p>
-      <div class="img-pair">
-        <img src="visionai_assets/home_remote_room.jpg" alt="Vision AI Home on a TV in a purple-lit living room, opened with the AI button on the remote" style="flex:1.778 1 0;">
-        <img src="visionai_assets/home_remote_portrait.jpg" alt="Woman pressing the AI button on the remote to open Vision AI Home" style="flex:0.75 1 0;">
-      </div>
+      <div class="feature-visual"><video class="feature-video aibtn" autoplay muted loop playsinline preload="metadata" poster="visionai_assets/home_aibutton_poster.jpg" aria-label="Viewer presses the AI button on the remote and Vision AI Home appears over the content"><source src="visionai_assets/home_aibutton.webm" type="video/webm"><source src="visionai_assets/home_aibutton.mp4" type="video/mp4"></video></div>
 
       <div class="ux-row reveal">
         <h4>Non-Disruptive Visual Overlay</h4>
@@ -707,6 +709,11 @@
         <span class="media-src">Samsung Global Newsroom &middot; June 2026</span>
         <span class="media-title">[Interview] The Future of Screen Experiences &#9313;: From Watching to Understanding With Vision AI Companion</span>
         <span class="media-cta">Read the interview &rarr;</span>
+      </a>
+      <a class="media-link" href="https://ifdesign.com/en/winner-ranking/project/samsung-vision-ai-tv/758333" target="_blank" rel="noopener">
+        <span class="media-src">iF Design Award &middot; 2026</span>
+        <span class="media-title">Samsung Vision AI TV &mdash; iF Design Award Finalist</span>
+        <span class="media-cta">View the project &rarr;</span>
       </a>
     </div>
   </section>
